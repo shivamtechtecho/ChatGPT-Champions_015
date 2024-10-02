@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Concert+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sofadi+One&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    font-family: "Poppins";
+}
+body{
+    background-color: rgb(19, 19, 21);
+}
+.global-mkt{
+    background-color: rgb(44, 40, 40);
+}
+.global-mkt-wrapper{
+    display: flex;
+
+    color: white;
+    align-items: center;
+    padding: .5em 1em;
+    font-size: 16px;
+    text-align: center;
+    justify-content: space-between;
+}
+.global-mkt-wrapper ul{
+    display: flex;
+    gap: 2em;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 13px;
+    list-style: none;
+    text-align: left;
+
+}
+.global-mkt-wrapper ul li{
+    display: flex;
+    gap: .8em;
+    align-items: center;
+} 
+.global-mkt-wrapper ul li span{
+    display: flex;
+    gap: .3em;
+    align-items: center;
+    color: rgb(211, 211, 211);
+    font-weight: 600;
+    
+}
+.global-mkt-wrapper ul li a{
+    color: aqua;
+}
+.global-mkt-wrapper ul li p{
+    display: flex;
+    gap: .6em;
+    align-items: center;
+}
+
+/* API listed */
+.global-mkt-wrapper ul:last-child a{
+    text-decoration: none;
+    background-color: rgb(19, 19, 21);
+    color:aliceblue;
+    padding: .3em 1em;
+    border-radius: 20px;
+}
+.global-mkt-wrapper ul:last-child a:hover{
+    background-color: #fff;
+}
+
+.up {
+    color: rgb(2, 192, 2);
+  }
+  
+  .down {
+    color: red;
+  }
+
+  .global-mkt-wrapper li:nth-child(5) span a:nth-child(1){
+    border: 1px solid red;
+  }
+  
+
+/* Global Market Overview */
+.head-desc{
+}
+.head-desc-wrapper{
+    border:1px solid red;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    color: whitesmoke;
+    padding: 1em;
+}
+.head-desc-wrapper h1{
+    font-size: 3em; 
+}
+.head-desc-wrapper h1 span 
+    {
+        background: rgb(63,13,240);
+        background: linear-gradient(90deg, rgba(63,13,240,1) 0%, rgba(131,1,211,1) 100%);
+        -webkit-background-clip: text;
+        color: transparent; 
+    }
+

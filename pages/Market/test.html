@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoinMarketCap API Request</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    #loading {
+      display: none;
+      font-size: 16px;
+      color: blue;
+    }
+    #error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Get CoinMarket Data</h1>
+  <button id="fetchData">Fetch Data</button>
+  <p id="loading">Loading...</p>
+  <pre id="result"></pre>
+  <p id="error"></p>
+
+  <script>
+    document.getElementById('fetchData').addEventListener('click', () => {
+      const loadingElement = document.getElementById('loading');
+      const resultElement = document.getElementById('result');
+      const errorElement = document.getElementById('error');
+      
+      // Clear previous results and errors
+      resultElement.textContent = '';
+      errorElement.textContent = '';
+
+      // Show loading message
+      loadingElement.style.display = 'block';
+
+      axios.get('https://chat-gpt-backend.vercel.app/get-coinmarket-data')
+        .then(response => {
+          // Hide loading message
+          loadingElement.style.display = 'none';
+          // Display fetched data
+          resultElement.textContent = JSON.stringify(response.data, null, 2);
+        })
+        .catch(error => {
+          // Hide loading message
+          loadingElement.style.display = 'none';
+          // Display error message
+          if (error.response) {
+            errorElement.textContent = `Error: ${error.response.data.error || 'An error occurred.'}`;
+          } else {
+            errorElement.textContent = 'Error: Unable to fetch data. Please try again later.';
+          }
+        });
+    });
+  </script>
+</body>
+</html>
