@@ -1,0 +1,209 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="styles.css">  
+    <title>Koinly Dashboard</title>  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+</head>  
+<body>  
+    <div class="container">  
+        <header>  
+            <h1>Koinly</h1>  
+            <nav>  
+                <ul>  
+                    <li>Dashboard</li>  
+                    <li>Wallets</li>  
+                    <li>Transactions</li>  
+                    <li>Tax Reports</li>  
+                    <li>Settings</li>  
+                </ul>  
+            </nav>  
+            <div class="plan">Free Plan</div>  
+        </header>  
+
+        <div class="summary">  
+            <div class="total-value">  
+                <h2>Total Value</h2>  
+                <p>$55,314 <span class="increase">↑ +105.98%</span></p>  
+            </div>  
+            <div class="cost-basis">  
+                <h2>Cost Basis</h2>  
+                <p>$26,854</p>  
+            </div>  
+            <div class="unrealized-gains">  
+                <h2>Unrealized Gains</h2>  
+                <p>$28,459</p>  
+            </div>  
+        </div>  
+
+        <div class="chart">  
+            <canvas id="totalValueChart"></canvas>  
+        </div>  
+
+        <div class="date-range">  
+            <p>Jan 1, 2021 ~ Dec 31, 2021</p>  
+            <p>128 transactions</p>  
+        </div>  
+
+        <div class="breakdown">  
+            <h2>Breakdown</h2>  
+            <div class="breakdown-item">Received: $3,537</div>  
+            <div class="breakdown-item">Sent: $22,552</div>  
+            <div class="breakdown-item">Income: $2,042</div>  
+            <div class="breakdown-item">Expenses: $832</div>  
+            <div class="breakdown-item">Trading fees: $769</div>  
+            <div class="breakdown-item">Realized gains: $23,543</div>  
+            <div class="breakdown-item">Fiat on exchanges: $0</div>  
+        </div>  
+
+        <div class="holdings">  
+            <h2 id="hold">Holdings</h2>  
+            <canvas id="holdingsChart"></canvas>  
+            <table>  
+                <thead>  
+                    <tr>  
+                        <th>Asset</th>  
+                        <th>Balance</th>  
+                        <th>Cost (USD)</th>  
+                        <th>Market Value</th>  
+                        <th>ROI</th>  
+                        <th>24h</th>  
+                    </tr>  
+                </thead>  
+                <tbody>  
+                    <tr class="ab">  
+                        <td>BTC</td>  
+                        <td>2.5008</td>  
+                        <td>$5,823</td>  
+                        <td>$42,459</td>  
+                        <td>+629.2%</td>  
+                        <td><canvas class="sparkline" id="btcSparkline"></canvas></td>  
+                    </tr>  
+                    <tr class="ab">  
+                        <td>BCH</td>  
+                        <td>81.8200</td>  
+                        <td>$9,901</td>  
+                        <td>$8,641</td>  
+                        <td id="bc">-12.72%</td>  
+                        <td><canvas class="sparkline" id="bchSparkline"></canvas></td>  
+                    </tr>  
+                    <tr class="ab">  
+                        <td>ETH</td>  
+                        <td>3.3499</td>  
+                        <td>$10,480</td>  
+                        <td>$4,194</td>  
+                        <td id="bc">-59.98%</td>  
+                        <td><canvas class="sparkline" id="ethSparkline"></canvas></td>  
+                    </tr>  
+                </tbody>  
+            </table>  
+        </div>  
+    </div>  
+
+    <script>  
+        // Total value chart  
+        const ctx1 = document.getElementById('totalValueChart').getContext('2d');  
+        const totalValueChart = new Chart(ctx1, {  
+            type: 'line',  
+            data: {  
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],  
+                datasets: [{  
+                    label: 'Total Value',  
+                    data: [20000, 25000, 30000, 35000, 45000, 55000, 55314],  
+                    borderColor: 'rgba(75, 192, 192, 1)',  
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',  
+                    fill: true,  
+                }]  
+            },  
+            options: {  
+                responsive: true,  
+                scales: {  
+                    y: {  
+                        beginAtZero: true  
+                    }  
+                }  
+            }  
+        });  
+
+        // Holdings chart  
+        const ctx2 = document.getElementById('holdingsChart').getContext('2d');  
+        const holdingsChart = new Chart(ctx2, {  
+            type: 'bar',  
+            data: {  
+                labels: ['BTC', 'BCH', 'ETH'],  
+                datasets: [{  
+                    label: 'Market Value',  
+                    data: [42459, 8641, 4194],  
+                    backgroundColor: [  
+                        'rgba(255, 99, 132, 0.2)',  
+                        'rgba(54, 162, 235, 0.2)',  
+                        'rgba(255, 206, 86, 0.2)'  
+                    ],  
+                    borderColor: [  
+                        'rgba(255, 99, 132, 1)',  
+                        'rgba(54, 162, 235, 1)',  
+                        'rgba(255, 206, 86, 1)'  
+                    ],  
+                    borderWidth: 1  
+                }]  
+            },  
+            options: {  
+                responsive: true,  
+                scales: {  
+                    y: {  
+                        beginAtZero: true  
+                    }  
+                }  
+            }  
+        });  
+
+        // Sparkline charts  
+        function createSparkline(ctx, data) {  
+            return new Chart(ctx, {  
+                type: 'line',  
+                data: {  
+                    labels: Array(data.length).fill(''),  // empty labels for the sparkline  
+                    datasets: [{  
+                        data: data,  
+                        borderColor: 'rgba(75, 192, 192, 1)',  
+                        backgroundColor: 'rgba(75, 192, 192, 0)',  
+                        fill: true,  
+                    }]  
+                },  
+                options: {  
+                    responsive: false,  
+                    scales: {  
+                        x: {  
+                            display: false  // Hide X axis  
+                        },  
+                        y: {  
+                            display: false,  
+                            beginAtZero: false,  
+                            ticks: {  
+                                display: false // Hide Y axis ticks  
+                            }  
+                        }  
+                    },  
+                    elements: {  
+                        line: {  
+                            tension: 0.4 // Smooth the line  
+                        }  
+                    }  
+                }  
+            });  
+        }  
+
+        // Sample data for sparkline charts  
+        const btcData = [40000, 41000, 40500, 42000, 43000, 44400, 45000];  
+        const bchData = [900, 850, 875, 820, 800, 815, 845];  
+        const ethData = [4000, 3900, 3950, 4050, 4010, 3940, 3920];  
+
+        createSparkline(document.getElementById('btcSparkline').getContext('2d'), btcData);  
+        createSparkline(document.getElementById('bchSparkline').getContext('2d'), bchData);  
+        createSparkline(document.getElementById('ethSparkline').getContext('2d'), ethData);  
+
+    </script>  
+</body>  
+</html>
