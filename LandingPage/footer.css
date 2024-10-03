@@ -1,0 +1,5 @@
+.footer-top { padding-block: 100px 90px; }
+  
+    .footer-top .container { grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr; }
+  
+    .footer-brand { grid-column: auto; }
