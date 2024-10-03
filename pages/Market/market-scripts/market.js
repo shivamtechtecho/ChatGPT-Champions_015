@@ -75,3 +75,76 @@ fetchData();
 
 // Refresh data every 5 minutes (300,000 ms)
 setInterval(fetchData, 300000); // Adjust interval as necessary
+// ---------------------------------------------------------------
+// ---------------------------------------------------------------
+// ---------------------------------------------------------------
+// Slide Section
+function initSlider(sliderId, indicatorsId) {
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(`#${sliderId} .slide`);
+  const dots = document.querySelectorAll(`#${indicatorsId} .dot`);
+
+  // Function to go to the specific slide
+  function goToSlide(n) {
+    currentSlide = (n + slides.length) % slides.length; // loop back
+    document.querySelector(`#${sliderId}`).style.transform = `translateX(-${
+      currentSlide * 100
+    }%)`;
+    updateDots();
+  }
+
+  // Function to update active dot
+  function updateDots() {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentSlide);
+    });
+  }
+
+  // Auto slide every 3 seconds
+  function autoSlide() {
+    goToSlide(currentSlide + 1);
+  }
+
+  let sliderInterval = setInterval(autoSlide, 3000);
+
+  // Add click event to each dot to navigate slides
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      clearInterval(sliderInterval); // Stop auto sliding
+      goToSlide(index); // Go to clicked slide
+      sliderInterval = setInterval(autoSlide, 3000); // Restart auto sliding
+    });
+  });
+}
+
+// Initialize both sliders
+initSlider("slider1", "indicators1");
+initSlider("slider2", "indicators2");
+
+// Set the countdown target to 5 days from now
+let countdownDate = new Date().getTime() + 5 * 24 * 60 * 60 * 1000;
+
+// Update the countdown every 1 second
+let countdownFunction = setInterval(function () {
+  // Get the current time
+  let now = new Date().getTime();
+
+  // Find the time difference between now and the countdown date
+  let distance = countdownDate - now;
+
+  // Calculate days, hours, minutes, and seconds
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the countdown element
+  document.getElementById("countdown").innerHTML =
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+  // If the countdown is finished, display some text
+  if (distance < 0) {
+    clearInterval(countdownFunction);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
