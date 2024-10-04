@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Concert+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sofadi+One&display=swap');
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+    /**
+     * colors
+     */
+    
+    --cadet-blue-crayola: hsl(227, 13%, 73%);
+    --maximum-yellow-red: hsl(41, 95%, 61%);
+    --medium-sea-green: hsl(142, 43%, 54%);
+    --blue-crayola_10: hsla(222, 100%, 61%, 0.05);
+    --smocky-black_30: hsla(0, 0%, 6%, 0.3);
+    --eerie-black-1: hsl(240, 5%, 8%);
+    --eerie-black-2: hsl(228, 9%, 10%);
+    --raisin-black: hsl(225, 15%, 16%);
+    --blue-crayola: hsl(222, 100%, 61%);
+    --roman-silver: hsl(223, 10%, 52%);
+    --presian-red: hsl(0, 64%, 52%);
+    --gunmetal_50: hsla(230, 16%, 22%, 0.5);
+    --gainsboro: hsl(0, 0%, 85%);
+    --cultured: hsl(0, 0%, 93%);
+    --white_50: hsla(0, 0%, 100%, 0.5);
+    --white_30: hsla(0, 0%, 100%, 0.3);
+    --white_10: hsla(0, 0%, 100%, 0.1);
+    --black_10: hsla(0, 0%, 0%, 0.1);
+    --white: hsl(0, 0%, 100%);
+  
+    /**
+     * gradient color
+     */
+  
+    --gradient: linear-gradient(90deg, var(--white_10) 0px 77%, var(--white_50) 92%, transparent);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    font-size: 1em;
+    color: aliceblue;
+}
+body{
+    background-color: rgb(19, 19, 21);
+}
+
+
+/* setting */
+.flex-wrapper{
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    grid-gap: 50px;
+}
+.coin-detail {
+    height: 100vh;
+    border: 1px solid red;
+    flex-direction: column;
+    padding: 0.7em;
+    overflow-y: scroll; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Hides horizontal scrollbar */
+}
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.coin-detail::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.coin-detail {
+    scrollbar-width: none; /* Firefox hides scrollbar */
+}
+
+/* Hide scrollbar for IE and older versions of Edge */
+.coin-detail {
+    -ms-overflow-style: none; /* Internet Explorer and older Edge */
+}
+
+.coin-name-top{
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    align-items:center ;
+}
+.coin-wrap {
+    display: grid;
+    grid-template-columns: 24px 273.31px 31.95px 15px;
+    column-gap: 8px;
+    font-size: 15px;
+    line-height: 22.5px;
+}
+
+.coin-wrap > img{
+    max-width: auto;
+    width: 24px;
+    object-fit: cover;
+}
+.coin-wrap >span{
+    font-size: 19px;
+    font-weight: 600;
+    line-height: normal;   
+}
+.coin-wrap >span span{
+    color: rgb(210, 221, 241);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+}
+.icon-wrap{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.icon-wrap a{
+    color: rgb(207, 213, 223);
+    font-size: .9em;
+    font-stretch: 100%;
+    font-weight: 500;
+    text-decoration: none;
+    padding: .4em;
+    border-radius: 8px;
+    line-height: 16px;
+    text-align: center;
+    background-color: rgb(88, 88, 97);
+}
+
+/* 
+Main Price
+*/
+.up  {
+    color: rgb(2, 192, 2);
+}
+  
+.down {
+    color: red;
+}
+
+.coin-mainprice{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 12px;
+    gap:1em;
+    margin-top: 12px;
+    line-height: 22px;
+}
+.coin-mainprice p{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+}
+.coin-mainprice span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3em;
+    line-height: 21px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(2, 192, 2);
+}
+.coin-mainprice span i{
+    color: rgb(2, 192, 2);
+}
+
+
+/* market cap */
+.market-cap
+{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    line-height: 22.5px;
+    margin-top: 2em;
+}
+.market-cap > span{
+    color: rgb(214, 218, 226);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 18px;
+    align-items: center;
+    gap: .5em;
+    font-size: 14px;
+    flex-wrap: nowrap; 
+}
+.market-cap > span > i{
+    color: rgb(214, 218, 226);
+}
+.market-cap .val {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3em;
+    line-height: 18px;
+    font-size: 13px;
+    text-align: right;
+    font-weight: 600;
+}
+.market-cap .val #percent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3em;
+    line-height: 18px;
+    font-size: 13px;
+    text-align: right;
+    font-weight: 600;
+    color: rgb(2, 192, 2);
+}
+.market-cap .val span i{
+    color: rgb(2, 192, 2);
+}
+.ruler {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.ruler p {
+    text-align: left;
+    font-size: 12px;
+}
+
+.ruler .range {
+    content: " ";
+    height: 0.6px;
+    border-radius: 10px;
+    background-color: rgb(214, 218, 226);
+    width: auto; /* Starting width */
+    animation: loadBar 2s forwards ease-in-out; /* Add animation */
+}
+
+/* Keyframes for the loading bar animation */
+@keyframes loadBar {
+    from {
+        width: 2%; /* Start at 2% width */
+    }
+    to {
+        width: 90%; /* Animate to the original width */
+    }
+}
+
+.market-cap .oneone .val span i{
+    color: red;
+}
+#ruler2 .range{
+    width: 69%;
+}
+#v-c-cap,
+#v-c-cap i{
+    color: aliceblue;
+}
+#ruler3 .range{
+    width: 92%;
+    height: 0.7px;
+    background-color:  rgb(200, 202, 206);;
+}
+
+
+/* Social Linkss */
+
+.social-coin{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    gap: 1.2em;
+    color: rgb(214, 218, 226);
+    border-top: 1px solid rgb(68, 68, 68);
+    font-size: 13px;
+    padding-top: 1em;
+    margin-bottom: 1em;
+}
+.links-toggles{
+    display: flex;
+    gap: 1em;
+}
+.links-toggles a{
+    text-decoration: none;
+    background-color: rgb(88, 88, 97);
+    padding: .3em;
+    border-radius: 8px;
+}
+
+
+/* 
+rating 
+*/
+.rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    border-top: 1px solid rgb(68, 68, 68);
+    gap: 1.4em;
+}
+.rating-first{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 13px;
+    font-weight: 600;
+    gap: .6em;
+    margin-top: 1em;
+    line-height: 19px;
+}
+.rating-first i {
+    font-size: 5px;
+    color: rgb(151, 151, 151);
+}
+.rating-first span{
+    font-weight: 500;
+    font-size: 12px;
+    color: rgb(151, 151, 151);
+}
+.rating-sec{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 13px;
+    font-weight: 500;
+}
+.rating-sec span i {
+    color: gold;
+}
+}
+.rating-sec i{
+    color: rgb(214, 218, 226);
+}
