@@ -83,19 +83,48 @@ main {
 }
 
 .crypto-row.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-weight: bold;       
     background-color: #ffffff;
+    padding: 20px;
+    border-bottom: 2px solid #333;
+    font-weight: 700;
 }
 
 .header-item {
-    flex: 1;
     text-align: center;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.header-item:first-child {
+    flex: 1.5;
+}
+
+.header-item:not(:first-child) {
+    flex: 1;
+}
+
+.crypto-info {
+    flex: 2;
+    display: flex;
+    align-items: center;
 }
 
 .crypto-info h2 {
     font-size: 18px;
     font-weight: 500;
     margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.crypto-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px; /* Add space between logo and name */
 }
 
 .crypto-price,
@@ -105,23 +134,17 @@ main {
 .crypto-actions {
     flex: 1;
     text-align: center;
+    padding: 10px;
 }
 
-.crypto-graph {
+.crypto-graph img {
     width: 100px;
     height: 50px;
-    background-color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.graph-placeholder {
-    color: #bbb;
 }
 
 .buttons {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
 }
 
 .buy-btn,
@@ -155,7 +178,9 @@ main {
 /* Pagination */
 
 .pagination {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     margin-top: 20px;
 }
 
@@ -173,7 +198,7 @@ main {
 }
 
 .prev-btn:hover, .next-btn:hover {
-    background-color: #444;
+    background-color: #38a6ff;
 }
 
 /*-----------------------------------*\
