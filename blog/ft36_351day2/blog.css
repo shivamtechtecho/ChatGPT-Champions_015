@@ -1,13 +1,76 @@
-.p1{
+/* Section 1 styles */
+.section1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    padding: 20px;
+}
+
+.section1 .blog-post {
+    /* Add any padding or margin if needed */
+}
+
+.section1 img {
+    border-radius: 15px;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.section1 button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: white;
+    color: #007BFF;
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    border: none;
+    cursor: pointer;
+}
+
+.section1 h3 {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+}
+
+.section1 p {
+    font-size: 1rem;
+    color: #555;
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+}
+
+.section1 p + p {
+    font-size: 12px;
+    color: #555;
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+    .section1 {
+        grid-template-columns: repeat(2, 1fr);  
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section1 {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* P1 styles */
+.p1 {
     background-color: rgb(14, 55, 151);
 }
-.p1 div{
+
+.p1 div {
     display: grid;
     gap: 16px;
     grid-template-columns: 1fr 0fr;
     grid-template-rows: auto; 
 }
-.p1 div div{
+
+.p1 div div {
     -webkit-box-pack: center;
     justify-content: center;
     display: flex;
@@ -15,13 +78,14 @@
     padding-top: 48px;
     padding-bottom: 48px; 
 }
+
 .p1 div div div {
     display: flex;
     flex-direction: column;
     margin-left: 50px;
 }
 
-.p1 div div div + div{
+.p1 div div div + div {
     display: flex;
     margin: 0px;
     padding: 0px;
@@ -29,7 +93,8 @@
     font-size: 100%;
     vertical-align: baseline; 
 }
-.p1 div div div + div img{
+
+.p1 div div div + div img {
     max-width: 100%;
     height: auto;
     display: flex;
@@ -37,12 +102,14 @@
     border: 0px;
     vertical-align: baseline;
 }
+
 @media screen and (max-width: 767px) {
-    .p1 div div div + div img{
+    .p1 div div div + div img {
         display: none;
     }
 }
-.p1 div div div h1{
+
+.p1 div div div h1 {
     font-family: Inter, "Helvetica Neue", Arial, sans-serif; 
     margin-bottom: 0px;
     line-height: 1.1;
@@ -50,7 +117,8 @@
     color: rgb(255, 255, 255);
     font-weight: 600; 
 }
-.p1 div div h1 + div{
+
+.p1 div div h1 + div {
     font-family: Inter, "Helvetica Neue", Arial, sans-serif;
     color: rgb(255, 255, 255);
     font-size: 18px;
@@ -58,4 +126,3 @@
     font-weight: 400;
     line-height: 1.45;
 }
-
