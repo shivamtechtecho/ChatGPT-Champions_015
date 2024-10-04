@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/90b32dcee6.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles-market/mkt-detail.css">
+    <title>Currency</title>
+</head>
+<body>
+    <!-- <header class="header" data-header>
+        <div class="container">
+    
+          <a href="#" class="logo">
+            <img src="./WhatsApp Image 2024-10-02 at 12.20.13 AM.jpeg" width="80" height="80" alt="Cryptex logo">
+            CryptoFI
+          </a>
+    
+          <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link active" data-nav-link>Homepage</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link" data-nav-link>Buy & Sell Crypto</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link" data-nav-link>Markets</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link" data-nav-link>Portfolio</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link" data-nav-link>Blog</a>
+              </li>
+    
+              
+    
+            </ul>
+          </nav>
+    
+          <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </button>
+    
+          <a href="#" class="btn btn-outline">Wallet</a>
+    
+         
+    
+          <a href="#" class="btn btn-outline">Login</a>
+    
+        </div>
+      </header> -->
+    <div class="flex-wrapper">
+        <div class="coin-detail">
+            <div class="coin-name-top">
+                <div class="coin-wrap">
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" alt="">
+                    <span>Bitcoin  <span>BTC</span></span>
+                   
+                </div>
+                <div class="icon-wrap">
+                    <a href="#"><i class="fa-regular fa-star"></i> 5M</a>
+                    <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                </div>
+            </div>   
+            
+            <!-- 
+            Coin Price
+            -->
+            <articl class="coin-mainprice">
+                <p>$61,374.51</p>
+                <span class=><i class="fa-solid fa-sort-up"></i> 1.23% (1d)</span>
+            </articl>
+
+            <!-- 
+            MArket capital
+             -->
+            <div class="market-cap">
+                <span>Market cap <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                    <!-- <span id="percent" class=><i class="fa-solid fa-sort-up"></i> 1.23% (1d)</span> -->
+                    <span id="percent" ><i class="fa-solid fa-sort-up"></i> 1.23% (1d)</span>
+                    <span>$1,212,930,431,752</span>
+                </div>
+            </div>
+            <div class="ruler">
+                <div class="range"></div>
+                <p>#1</p>
+            </div>
+            <!-- 
+            Volume 
+             -->
+             <div class="market-cap oneone ">
+                <span>Volume (24h)<i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                    <span id="percent"  style="color: red;"><i style="color: red;" class="fa-solid fa-sort-down"></i> 1.23% (1d)</span>
+                    <span>$32,859,110,335</span>
+                </div>
+            </div>
+            <div id="ruler2" class="ruler">
+                <div class="range"></div>
+                <p>#2</p>
+            </div>
+            <!--
+             Volume  24h/ cap
+              -->
+            <div class="market-cap oneone ">
+              <span>Volume/Market cap (24h) (24h)<i class="fa-solid fa-circle-info"></i></span>
+              <div class="val">
+                  <span id="v-c-cap" ><i  class="fa-solid fa-sort-down"></i> 1.23% (1d)</span>
+                 
+              </div>
+            </div>
+
+
+            <!-- 
+            Curculstion Supply
+             -->
+
+             <div class="market-cap">
+                <span>Circulating supply <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                
+                    <span>19,762,771 BTC</span>
+                </div>
+            </div>
+            <div id="ruler3" class="ruler">
+                <div class="range"></div>
+                <p>94.11%</p>
+            </div>
+
+            <!-- 
+            Supply
+             -->
+            <div class="supply">
+            <div class="market-cap">
+                <span>Total Supply <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                
+                    <span>19,762,771 BTC</span>
+                </div>
+            </div>
+            <div class="market-cap">
+                <span>Max. supply <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                
+                    <span>21,000,000 BTC</span>
+                </div>
+            </div>
+            <div class="market-cap">
+                <span>Fully diluted market cap <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                
+                    <span>19,762,771 BTC</span>
+                </div>
+            </div>
+        </div>
+
+            <!-- 
+            Socials
+             -->
+            <div class="social-coin">
+                <h3>Official links</h3>
+                <div class="links-toggles">
+                    <a href="https://bitcoin.org/en/"><i class="fa-solid fa-globe"></i> Website</a>
+                    <a href="https://bitcoin.org/bitcoin.pdf"><i class="fa-regular fa-file"></i> Whitepaper</a>
+                    <a href="https://github.com/bitcoin/bitcoin"><i class="fa-brands fa-github"></i> GitHub</a>
+                </div>
+            </div>
+
+            <div class="social-coin">
+                <h3>Socials</h3>
+                <div class="links-toggles">
+                    <a href="https://bitcoin.org/en/"><i class="fa-brands fa-reddit-alien"></i> Reddit</a>
+                    <a href="https://bitcoin.org/bitcoin.pdf"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                    
+                </div>
+            </div>
+
+            <!-- 
+            Rating
+             -->
+            <div class="rating">
+                <div class="rating-first">
+                    <p>Rating</p>
+                    <i class="fa-solid fa-circle"></i>
+                    <span>Based on 2 institutional ratings</span>
+                </div>
+                <div class="rating-sec">
+                    <p>4.9</p>
+                    <span>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </span>
+                    <i class="fa-solid fa-circle-info"></i>
+
+                </div>
+            </div>
+
+
+
+            <!-- 
+            Network Information 
+            -->
+            <div class="social-coin">
+                <h3>Network Information</h3>
+                <div class="links-toggles">
+                    <a href="https://bitcoin.org/en/"><i class="fa-solid fa-magnifying-glass"></i> Chain explorers <i class="fa-solid fa-angle-down"></i> </a>
+                    <a href="https://bitcoin.org/bitcoin.pdf"><i class="fa-solid fa-wallet"></i></i> Suppoerted Wallet</a>
+                    
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="coin-chart">lo1</div>
+    </div>
+<script src="./market-scripts/market.js"></script>
+</body>
+</html>

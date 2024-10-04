@@ -64,7 +64,28 @@ function fetchData() {
           ).textContent = `${res.data.data[0].value}/100`;
         })
         .catch((err) => console.log(err));
+      // Overall Market insights
+      // Market Cap and percentage change
+      document.querySelector(
+        ".head-desc-wrapper p span:first-child"
+      ).textContent = `$${(
+        data.quote.USD.total_market_cap / 1000000000000
+      ).toFixed(2)}T`;
+      const marketCapChange1 = document.querySelector(
+        ".head-desc-wrapper p span:nth-child(2)"
+      );
+      marketCapChange1.innerHTML = `<i class="fa-solid fa-sort-${
+        marketCapPercentageChange < 0 ? "down" : "up"
+      }"></i> ${Math.abs(marketCapPercentageChange).toFixed(2)}%`;
+      marketCapChange1.className =
+        marketCapPercentageChange < 0 ? "down" : "up"; // Apply color
+      const marketIncDec = document.querySelector(
+        ".head-desc-wrapper p span:nth-child(3)"
+      );
+      marketIncDec.innerHTML =
+        marketCapPercentageChange < 0 ? "decrease" : "increase";
     })
+
     .catch(function (error) {
       console.error("Error fetching market data:", error);
     });
@@ -148,3 +169,102 @@ let countdownFunction = setInterval(function () {
     document.getElementById("countdown").innerHTML = "EXPIRED";
   }
 }, 1000);
+
+// Animation
+
+const view_animation = (cur_state, animate) => {
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all elements with the current state class
+    document.querySelectorAll(`.${cur_state}`).forEach((element) => {
+      // Remove the current state class and add the animation class
+      element.classList.remove(`${cur_state}`);
+      element.classList.add(`${animate}`);
+    });
+  });
+};
+view_animation("fade-up", "animate-fadeUp");
+view_animation("vanish", "animate-appear");
+
+// polulating the table
+const apiEndpoint =
+  "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
+
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    "x-cg-demo-api-key": "	CG-FsyvQgVi1Nh2kTBk3HU2icLx",
+  },
+};
+
+fetch(apiEndpoint, options)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+
+    const tableBody = document.querySelector("tbody");
+
+    data.forEach((coin, index) => {
+      // Create a new row
+      const row = document.createElement("tr");
+      row.style.cursor = "pointer";
+
+      // Columns for each data point
+      row.innerHTML = `
+          <td><i class="fa-regular fa-star"></i></td>
+          <td class="coin-rank" style="text-align: center;"><p>${
+            coin.market_cap_rank
+          }</p></td>
+          <td class="coin-name" style="text-align: start;">
+            <a style="display: flex;" href="#">
+              <img class="coin-logo" src="${coin.image}" alt="${coin.name}">
+              <p>${coin.name}</p>
+              <p>${coin.symbol.toUpperCase()}</p>
+            </a>
+          </td>
+          <td style="text-align: end;"><span>$${coin.current_price.toLocaleString()}</span></td>
+          <td style="text-align: end;">
+            <span><i class="${
+              coin.price_change_percentage_1h_in_currency >= 0
+                ? "fa-solid fa-sort-up"
+                : "fa-solid fa-sort-down"
+            }"></i> ${
+        coin.price_change_percentage_1h_in_currency?.toFixed(2) || "N/A"
+      }%</span>
+          </td>
+          <td style="text-align: end;">
+            <span><i class="${
+              coin.price_change_percentage_24h >= 0
+                ? "fa-solid fa-sort-up"
+                : "fa-solid fa-sort-down"
+            }"></i> ${coin.price_change_percentage_24h.toFixed(2)}%</span>
+          </td>
+          <td style="text-align: end;">
+            <span><i class="${
+              coin.price_change_percentage_7d_in_currency >= 0
+                ? "fa-solid fa-sort-up"
+                : "fa-solid fa-sort-down"
+            }"></i> ${
+        coin.price_change_percentage_7d_in_currency?.toFixed(2) || "N/A"
+      }%</span>
+          </td>
+          <td style="text-align: end;"><span>$${coin.market_cap.toLocaleString()}</span></td>
+          <td style="text-align: end;">
+            <p>$${coin.total_volume.toLocaleString()}</p>
+            <p>${
+              coin.total_volume / coin.current_price
+            } ${coin.symbol.toUpperCase()}</p>
+          </td>
+          <td style="text-align: end;"><p>${coin.circulating_supply.toLocaleString()} ${coin.symbol.toUpperCase()}</p></td>
+          <td style="text-align: end;">
+            <img src="https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/${
+              coin.market_cap_rank
+            }.svg" alt="${coin.name} 7d chart">
+          </td>
+        `;
+
+      // Append the row to the table body
+      tableBody.appendChild(row);
+    });
+  })
+  .catch((error) => console.error("Error fetching data:", error));
