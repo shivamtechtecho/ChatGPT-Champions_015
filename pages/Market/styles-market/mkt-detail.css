@@ -1,0 +1,890 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Concert+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sofadi+One&display=swap');
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+    /**
+     * colors
+     */
+    
+    --cadet-blue-crayola: hsl(227, 13%, 73%);
+    --maximum-yellow-red: hsl(41, 95%, 61%);
+    --medium-sea-green: hsl(142, 43%, 54%);
+    --blue-crayola_10: hsla(222, 100%, 61%, 0.05);
+    --smocky-black_30: hsla(0, 0%, 6%, 0.3);
+    --eerie-black-1: hsl(240, 5%, 8%);
+    --eerie-black-2: hsl(228, 9%, 10%);
+    --raisin-black: hsl(225, 15%, 16%);
+    --blue-crayola: hsl(222, 100%, 61%);
+    --roman-silver: hsl(223, 10%, 52%);
+    --presian-red: hsl(0, 64%, 52%);
+    --gunmetal_50: hsla(230, 16%, 22%, 0.5);
+    --gainsboro: hsl(0, 0%, 85%);
+    --cultured: hsl(0, 0%, 93%);
+    --white_50: hsla(0, 0%, 100%, 0.5);
+    --white_30: hsla(0, 0%, 100%, 0.3);
+    --white_10: hsla(0, 0%, 100%, 0.1);
+    --black_10: hsla(0, 0%, 0%, 0.1);
+    --white: hsl(0, 0%, 100%);
+  
+    /**
+     * gradient color
+     */
+  
+    --gradient: linear-gradient(90deg, var(--white_10) 0px 77%, var(--white_50) 92%, transparent);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    font-size: 1em;
+    color: aliceblue;
+}
+body{
+    background-color: rgb(19, 19, 21);
+    /* background-color: #131315; */
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 304 304' width='304' height='304'%3E%3Cpath fill='%2335353b' fill-opacity='0.15' d='M44.1 224a5 5 0 1 1 0 2H0v-2h44.1zm160 48a5 5 0 1 1 0 2H82v-2h122.1zm57.8-46a5 5 0 1 1 0-2H304v2h-42.1zm0 16a5 5 0 1 1 0-2H304v2h-42.1zm6.2-114a5 5 0 1 1 0 2h-86.2a5 5 0 1 1 0-2h86.2zm-256-48a5 5 0 1 1 0 2H0v-2h12.1zm185.8 34a5 5 0 1 1 0-2h86.2a5 5 0 1 1 0 2h-86.2zM258 12.1a5 5 0 1 1-2 0V0h2v12.1zm-64 208a5 5 0 1 1-2 0v-54.2a5 5 0 1 1 2 0v54.2zm48-198.2V80h62v2h-64V21.9a5 5 0 1 1 2 0zm16 16V64h46v2h-48V37.9a5 5 0 1 1 2 0zm-128 96V208h16v12.1a5 5 0 1 1-2 0V210h-16v-76.1a5 5 0 1 1 2 0zm-5.9-21.9a5 5 0 1 1 0 2H114v48H85.9a5 5 0 1 1 0-2H112v-48h12.1zm-6.2 130a5 5 0 1 1 0-2H176v-74.1a5 5 0 1 1 2 0V242h-60.1zm-16-64a5 5 0 1 1 0-2H114v48h10.1a5 5 0 1 1 0 2H112v-48h-10.1zM66 284.1a5 5 0 1 1-2 0V274H50v30h-2v-32h18v12.1zM236.1 176a5 5 0 1 1 0 2H226v94h48v32h-2v-30h-48v-98h12.1zm25.8-30a5 5 0 1 1 0-2H274v44.1a5 5 0 1 1-2 0V146h-10.1zm-64 96a5 5 0 1 1 0-2H208v-80h16v-14h-42.1a5 5 0 1 1 0-2H226v18h-16v80h-12.1zm86.2-210a5 5 0 1 1 0 2H272V0h2v32h10.1zM98 101.9V146H53.9a5 5 0 1 1 0-2H96v-42.1a5 5 0 1 1 2 0zM53.9 34a5 5 0 1 1 0-2H80V0h2v34H53.9zm60.1 3.9V66H82v64H69.9a5 5 0 1 1 0-2H80V64h32V37.9a5 5 0 1 1 2 0zM101.9 82a5 5 0 1 1 0-2H128V37.9a5 5 0 1 1 2 0V82h-28.1zm16-64a5 5 0 1 1 0-2H146v44.1a5 5 0 1 1-2 0V18h-26.1zm102.2 270a5 5 0 1 1 0 2H98v14h-2v-16h124.1zM242 149.9V160h16v34h-16v62h48v48h-2v-46h-48v-66h16v-30h-16v-12.1a5 5 0 1 1 2 0zM53.9 18a5 5 0 1 1 0-2H64V2H48V0h18v18H53.9zm112 32a5 5 0 1 1 0-2H192V0h50v2h-48v48h-28.1zm-48-48a5 5 0 0 1-9.8-2h2.07a3 3 0 1 0 5.66 0H178v34h-18V21.9a5 5 0 1 1 2 0V32h14V2h-58.1zm0 96a5 5 0 1 1 0-2H137l32-32h39V21.9a5 5 0 1 1 2 0V66h-40.17l-32 32H117.9zm28.1 90.1a5 5 0 1 1-2 0v-76.51L175.59 80H224V21.9a5 5 0 1 1 2 0V82h-49.59L146 112.41v75.69zm16 32a5 5 0 1 1-2 0v-99.51L184.59 96H300.1a5 5 0 0 1 3.9-3.9v2.07a3 3 0 0 0 0 5.66v2.07a5 5 0 0 1-3.9-3.9H185.41L162 121.41v98.69zm-144-64a5 5 0 1 1-2 0v-3.51l48-48V48h32V0h2v50H66v55.41l-48 48v2.69zM50 53.9v43.51l-48 48V208h26.1a5 5 0 1 1 0 2H0v-65.41l48-48V53.9a5 5 0 1 1 2 0zm-16 16V89.41l-34 34v-2.82l32-32V69.9a5 5 0 1 1 2 0zM12.1 32a5 5 0 1 1 0 2H9.41L0 43.41V40.6L8.59 32h3.51zm265.8 18a5 5 0 1 1 0-2h18.69l7.41-7.41v2.82L297.41 50H277.9zm-16 160a5 5 0 1 1 0-2H288v-71.41l16-16v2.82l-14 14V210h-28.1zm-208 32a5 5 0 1 1 0-2H64v-22.59L40.59 194H21.9a5 5 0 1 1 0-2H41.41L66 216.59V242H53.9zm150.2 14a5 5 0 1 1 0 2H96v-56.6L56.6 162H37.9a5 5 0 1 1 0-2h19.5L98 200.6V256h106.1zm-150.2 2a5 5 0 1 1 0-2H80v-46.59L48.59 178H21.9a5 5 0 1 1 0-2H49.41L82 208.59V258H53.9zM34 39.8v1.61L9.41 66H0v-2h8.59L32 40.59V0h2v39.8zM2 300.1a5 5 0 0 1 3.9 3.9H3.83A3 3 0 0 0 0 302.17V256h18v48h-2v-46H2v42.1zM34 241v63h-2v-62H0v-2h34v1zM17 18H0v-2h16V0h2v18h-1zm273-2h14v2h-16V0h2v16zm-32 273v15h-2v-14h-14v14h-2v-16h18v1zM0 92.1A5.02 5.02 0 0 1 6 97a5 5 0 0 1-6 4.9v-2.07a3 3 0 1 0 0-5.66V92.1zM80 272h2v32h-2v-32zm37.9 32h-2.07a3 3 0 0 0-5.66 0h-2.07a5 5 0 0 1 9.8 0zM5.9 0A5.02 5.02 0 0 1 0 5.9V3.83A3 3 0 0 0 3.83 0H5.9zm294.2 0h2.07A3 3 0 0 0 304 3.83V5.9a5 5 0 0 1-3.9-5.9zm3.9 300.1v2.07a3 3 0 0 0-1.83 1.83h-2.07a5 5 0 0 1 3.9-3.9zM97 100a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-48 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 96a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-144a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm96 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM49 36a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-32 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM33 68a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 240a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm80-176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 48a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm112 176a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-16 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 180a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 16a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-32a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 84a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm32 64a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm16-16a3 3 0 1 0 0-6 3 3 0 0 0 0 6z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+
+/* setting */
+.flex-wrapper{
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    grid-gap: 50px;
+    padding: .5em 1em;
+    margin-bottom: 2em;
+}
+.coin-detail {
+    height: 100vh;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 8px;
+    flex-direction: column;
+    padding: 0.9em;
+    overflow-y: scroll; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Hides horizontal scrollbar */
+}
+
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.coin-detail::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.coin-detail {
+    scrollbar-width: none; /* Firefox hides scrollbar */
+}
+
+/* Hide scrollbar for IE and older versions of Edge */
+.coin-detail {
+    -ms-overflow-style: none; /* Internet Explorer and older Edge */
+}
+
+.coin-name-top{
+    display: flex;
+    height: auto;
+    justify-content: space-between;
+    align-items:center ;
+}
+.coin-wrap {
+    display: grid;
+    grid-template-columns: 24px 273.31px 31.95px 15px;
+    column-gap: 8px;
+    font-size: 15px;
+    line-height: 22.5px;
+}
+
+.coin-wrap > img{
+    max-width: auto;
+    width: 24px;
+    object-fit: cover;
+}
+.coin-wrap >span{
+    font-size: 19px;
+    font-weight: 600;
+    line-height: normal;   
+}
+.coin-wrap >span span{
+    color: rgb(210, 221, 241);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+}
+.icon-wrap{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.icon-wrap a{
+    color: rgb(207, 213, 223);
+    font-size: .9em;
+    font-stretch: 100%;
+    font-weight: 500;
+    text-decoration: none;
+    padding: .4em;
+    border-radius: 8px;
+    line-height: 16px;
+    text-align: center;
+    background-color: rgb(88, 88, 97);
+}
+
+/* 
+Main Price
+*/
+.up  {
+    color: rgb(2, 192, 2);
+}
+  
+.down {
+}
+.coin-mainprice p{
+    transition: color 1s ease;
+}
+.coin-mainprice,
+#coin-price-1{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 12px;
+    gap:1em;
+    margin-top: 12px;
+    line-height: 22px;
+ 
+}
+.coin-mainprice p,
+#coin-price-1 p{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 52px;
+}
+.coin-mainprice span,
+#coin-price-1 span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3em;
+    line-height: 21px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(2, 192, 2);
+}
+.coin-mainprice span i,
+#coin-price-1 span i{
+    color: rgb(2, 192, 2);
+}
+
+
+/* market cap */
+.market-cap
+{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    line-height: 22.5px;
+    margin-top: 2em;
+}
+.market-cap > span{
+    color: rgb(214, 218, 226);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 18px;
+    align-items: center;
+    gap: .5em;
+    font-size: 14px;
+    flex-wrap: nowrap; 
+}
+.market-cap > span > i{
+    color: rgb(214, 218, 226);
+}
+.market-cap .val {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3em;
+    line-height: 18px;
+    font-size: 13px;
+    text-align: right;
+    font-weight: 600;
+}
+.market-cap .val #percent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3em;
+    line-height: 18px;
+    font-size: 13px;
+    text-align: right;
+    font-weight: 600;
+    color: rgb(2, 192, 2);
+}
+.market-cap .val span i{
+    color: rgb(2, 192, 2);
+}
+.ruler {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+.ruler p {
+    text-align: left;
+    font-size: 12px;
+}
+
+.ruler .range {
+    content: " ";
+    height: 0.6px;
+    border-radius: 10px;
+    background-color: rgb(214, 218, 226);
+    width: auto; /* Starting width */
+    animation: loadBar 2s forwards ease-in-out; /* Add animation */
+}
+
+/* Keyframes for the loading bar animation */
+@keyframes loadBar {
+    from {
+        width: 2%; /* Start at 2% width */
+    }
+    to {
+        width: 90%; /* Animate to the original width */
+    }
+}
+
+.market-cap .oneone .val span i{
+    color: red;
+}
+#ruler2 .range{
+    width: 69%;
+}
+#v-c-cap,
+#v-c-cap i{
+    color: aliceblue;
+}
+#ruler3 .range{
+    width: 92%;
+    height: 0.7px;
+    background-color:  rgb(200, 202, 206);;
+}
+
+
+/* Social Linkss */
+
+.social-coin{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    gap: 1.2em;
+    color: rgb(214, 218, 226);
+    
+    font-size: 13px;
+    padding-top: 1em;
+    margin-bottom: 1em;
+}
+.links-toggles{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.links-toggles a{
+    text-decoration: none;
+    background-color: rgb(88, 88, 97);
+    padding: .3em;
+    border-radius: 8px;
+}
+
+
+/* 
+rating 
+*/
+.rating,
+.btc-converter {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+ 
+    gap: 1.4em;
+}
+.rating-first, 
+.btc-converter > p,
+#price-pridc{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 13px;
+    font-weight: 600;
+    gap: .6em;
+    margin-top: 1em;
+    line-height: 19px;
+}
+.rating-first i {
+    font-size: 5px;
+    color: rgb(151, 151, 151);
+}
+.rating-first span{
+    font-weight: 500;
+    font-size: 12px;
+    color: rgb(151, 151, 151);
+}
+.rating-sec{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 13px;
+    font-weight: 500;
+}
+.rating-sec span i {
+    color: gold;
+}
+
+.rating-sec i{
+    color: rgb(214, 218, 226);
+}
+
+
+/* 
+COnvertoer
+ */
+ .btc-converter {
+    margin-top: 1em;
+ }
+ .btc-converter  .input-convert{
+    display: flex;
+    padding: 1em;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    min-width: 424px;
+    margin: auto;
+    font-size: 13px;
+    margin-bottom: 2em;
+    background-color: rgb(88, 88, 97);
+}
+.input-convert input{
+    background-color: transparent;
+    border: none;
+    text-align: right;
+}
+.input-convert input::placeholder{
+    color: rgb(214, 218, 226);
+    
+ }
+.cont{
+    display: flex;
+    justify-content: space-between;
+    padding: .3em .5em;
+    width: 100%;
+    border: 1px solid rgb(214, 218, 226);
+    border-radius: 12px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+/* Price pridiction */
+#price-pridc{
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+#price-pridc .val > span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 20px;
+    background-color: rgb(88, 88, 97);
+    padding: .1em .2em;
+    font-weight: 500;
+    border-radius: 8px;
+}
+.load-border{
+    content: " ";
+    height: 1px;
+    width: auto;
+    margin: 1em 0;
+    background-color:  rgb(100, 100, 100);;
+    animation: loadBar 30s forwards ease-in-out;
+}
+
+/* 
+TOday HIgh Low
+ */
+.low-high{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom:1em
+}
+.low-high p {
+    font-weight: 400;
+    color: rgb(214, 218, 226);
+}
+.high-side{
+    text-align: right;
+}
+#ruler564trg{
+    background-color: rgb(90, 105, 136);
+}
+#ruler564trg .range{
+    animation: loadBar 20s forwards ease-in-out; /* Add animation */
+    
+}
+#kill-me{
+    color: red;
+    font-weight: 500;
+}
+
+
+/* ---------------------- */
+/* Trading-Window  */
+/* ---------------------- */
+
+
+
+
+.trading-window{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.coin-chart{
+    height: 70%;
+    border-radius: 10px;
+}
+.trade-type{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+.trade-type > .content{
+    display: flex;
+    flex-direction: column;
+    line-height: 32px;
+    width: 500px;
+    background-color: rgb(20, 20, 27);
+    padding: 3em 5em;
+}
+.trade-type > .content p {
+    font-size: 37px;
+    font-weight: 700;
+    line-height: 42px;
+    margin-bottom: .5em;
+}
+
+.trade-type > .content span{
+    color: rgb(214, 218, 226);
+    font-weight: 600;
+    line-height: 20px;
+}
+.content {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    z-index: 1;
+    max-height: 280px;
+}
+
+.content::before {
+    content: "";
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    right: -200px;
+    bottom: -200px;
+    border-radius: 10px;
+
+    border: 4px solid transparent;
+    background: #000046;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    z-index: -1;
+    filter: blur(5px);
+    animation: rotate 5s linear infinite;
+}
+.content > p > span 
+    {
+        background: rgb(63,13,240);
+        background: linear-gradient(90deg, rgba(63,13,240,1) 0%, rgba(131,1,211,1) 100%);
+        -webkit-background-clip: text;
+        color: transparent; 
+    }
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.choose-trade{
+
+    width: 100%;
+    max-height: 280px;
+    display: flex;
+    
+    justify-content: ce;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    
+    padding: 3em;
+}
+.choose-trade a{
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    line-height: 26px;
+    font-size: 14px;
+    font-weight: 500;
+    width: auto;
+    padding: .3em 1em;
+    border-radius: 8px;
+    background: #000428;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+.choose-trade a:last-child{
+    position: relative;
+
+}
+.choose-trade a:last-child sup{
+    position:absolute;
+    background-color: gold;
+    font-size: 11px;
+    font-weight: 600;
+    top:-34%;
+    left:90%;
+    padding: 0 5px;
+    border-radius: 8px;
+    color: black;
+}
+.choose-trade {
+    display: flex;
+    gap: 2em;
+    /* padding: 10px; */
+    /* border: 0px solid #00f2ff; */
+    border-radius: 10px;
+    background-color: #000; /* Optional: to make the neon glow more prominent */
+    box-shadow: 0 0 1px #0059ff, 0 0 25px #00f2ff, 0 0 10px #00f2ff;
+}
+
+.choose-trade a {
+    color: #add7da;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.choose-trade a:hover {
+    background-color: #00f2ff;
+    color: white;
+    box-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+}
+#coin-price-1,
+#grid-coin-name1{
+    display: none;
+}
+
+/* ================================
+=========Price TIckers==========
+================================ */
+/* Initial styles */
+
+/* Animation for price increase */
+.price-up {
+    color: green;
+    animation: priceUp 1s ease;
+}
+
+@keyframes priceUp {
+    0% { color: inherit; }
+    50% { color: green; }
+    100% { color: inherit; }
+}
+
+/* Animation for price decrease */
+.price-down {
+    color: red;
+    animation: priceDown 0.3s ease-in-out;
+}
+
+@keyframes priceDown {
+    0% { color: inherit; }
+    50% { color: red; }
+    100% { color: inherit; }
+}
+
+/* No change in price */
+.price-no-change {
+    color: inherit;
+}
+
+
+/* animation
+ */
+         .btc-converter,
+         .trade-type >content,
+         .coin-wrap,
+         .coin-mainprice1,
+         .coin-mainprice,
+         .links-toggles,
+         .low-high,
+         .navbar{
+    opacity: 0;
+    transform: translateY(50px); /* Start slightly below its normal position */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When the element is visible, it will animate to its final state */
+.visible {
+    opacity: 1;
+    transform: translateY(0); /* Moves into its final position */
+}
+
+
+footer {
+    padding: 40px 20px;
+    background-color: #141414;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.footer-section p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d1d1d1;
+}
+
+.footer-section img {
+    max-width: 70px;
+}
+
+.company h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.company p {
+    font-size: 14px;
+    color: #d1d1d1;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #38a6ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+.navbar {
+    background-color: #141414;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: #38a6ff;
+}
+
+.navbar .active {
+    color: #38a6ff;
+}
+
+.account-balance {
+    margin-right: 0px;
+}
+
+.account-balance a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.account-balance a:hover {
+    color: #38a6ff;
+}
+
+.login-btn {
+    border: 1px solid white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: rgb(5, 0, 0);
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    background-color: rgba(56, 166, 255, 0.8);
+    color: white;
+    border: 1px solid #ffffff;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------------- */
+/* ----------------------------------------- Media Query ------------- */
+/* --------------------------------------------------------------- */
+
+@media (max-width: 1430px) {
+    .trade-type{
+        flex-direction: column;
+    }
+    .trade-type .content{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+@media (max-width:1130px) {
+    .flex-wrapper{
+        grid-template-columns: 1fr;
+    }
+    .coin-detail{
+        overflow-y: hidden;
+        grid-column: 1;
+        grid-row: 2;
+        height: auto;
+    }
+    #grid-coin-name, .coin-mainprice{
+        display: none;
+    }
+    #coin-price-1,
+#grid-coin-name1{
+    display: flex;
+}
+    .coin-chart{
+        height: 65vh;
+    }
+}

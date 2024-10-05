@@ -144,6 +144,7 @@ body{
   .slide {
     min-width: 100%;
     border-radius: 8px;
+<<<<<<< HEAD
     background-color: #ddd;
     padding: .2em .3em;
     text-align: center;
@@ -151,6 +152,19 @@ body{
     border: 1px solid #ccc;
 
   }
+=======
+    background-color: rgb(19, 19, 21);
+    padding: .2em .3em;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #8f8e8e;
+    color: #ccc;
+
+  }
+  .slide:nth-child(2){
+    border: none;
+  }
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
   
   .indicators {
     text-align: center;
@@ -218,6 +232,13 @@ body{
 
   
   .slide-card-wrapper{
+<<<<<<< HEAD
+=======
+    border: 2px solid silver;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
+   
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
     box-sizing: border-box;
     display: flex;
     width: 70%;
@@ -229,7 +250,29 @@ body{
     padding: 2em;
     grid-template-columns: repeat(2,1fr);
     margin-bottom: 2em;
+<<<<<<< HEAD
   }
+=======
+    position: relative;
+    z-index: 1;
+  }
+/* .slide-card-wrapper::after,
+.slide-card-wrapper::before{
+    content: " ";
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+.slide-card-wrapper::before{
+    border: 2px solid silver;
+    box-shadow: rgba(255, 255, 255, 0.8) 0px 5px 15px;
+    border-radius: 12px
+} */
+
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
   .slide-card-wrapper .card{
     background: linear-gradient(277deg, rgba(255,175,123,0.8) 0%, rgba(215,109,119,0.8) 58%, rgba(58,28,113,0.8) 100%),
     url('https://cryptonews.com/wp-content/uploads/2023/10/1698859163-new-cryptocurrency-to-buy.jpg') no-repeat center center/cover;;                       
@@ -241,7 +284,10 @@ body{
         align-items: center;
         text-align: center;
         font-size: 16px;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
         color: white;  
 
   }
@@ -295,7 +341,11 @@ background: linear-gradient(243deg, rgba(255,162,0,1) 6%, rgba(255,255,255,1) 66
  
     }
 
+<<<<<<< HEAD
     .card .count-down-wrap p span{
+=======
+.card .count-down-wrap p span{
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
         
         background: #c31432;  /* fallback for old browsers */
         background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
@@ -313,7 +363,10 @@ background: linear-gradient(243deg, rgba(255,162,0,1) 6%, rgba(255,255,255,1) 66
     background: #0f0c29;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+<<<<<<< HEAD
     
+=======
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Make the text transparent */
     color: transparent; /* Ensure text is transparent for non-webkit browsers */
@@ -353,6 +406,12 @@ background: linear-gradient(243deg, rgba(255,162,0,1) 6%, rgba(255,255,255,1) 66
     padding: .3em .3em;
     background-color: rgb(88, 88, 97);
 }
+<<<<<<< HEAD
+=======
+.category-wrap ul li a:hover{
+    background-color: rgb(64, 52, 81);
+}
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
 .category-wrap ul:first-child li:first-child a{
     background-color: rgb(186, 152, 235);
     color:black;
@@ -393,17 +452,275 @@ padding: .1em .5em;
 } 
 
 
+<<<<<<< HEAD
+=======
+/* --------------------------------- */
+/* ----------Table List --------------- */
+/* --------------------------------------- */
+.list-body td{
+    padding: .5em .3em;
+    border-bottom: 1px solid gray;
+}
+.list-body tr td:first-child{
+    /* border: 1px solid red; */
+    padding: 0 .4em;
+}
+
+.list-body tr:nth-child(odd){
+    background-color: rgb(36, 34, 34);
+}
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
+
+
+
+
+
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+/* LIst markert */
+.price-list{
+    position: relative ;
+    color: white;
+}
+.sticky-top{
+    padding: 10px;
+    font-size: 12px;
+    box-sizing: border-box;
+    font-size: 700;
+    line-height: 22.5px;
+    text-wrap: nowrap;
+    vertical-align: middle;
+    z-index: 101;
+    position: sticky;
+}
+
+.coin-logo{
+    width: 32px;
+}
+.coin-name a{
+    display: flex;
+    padding: .3em;
+    color: white;
+    text-decoration: none;
+    gap: .4em;
+    align-items: center;
+}
+.price-list{
+
+}
+.price-wrapper{
+    font-size: 15px;
+    font-family: "popppins";
+    width: 70%;
+    margin: auto;
+    margin-top: 1em;
+    box-sizing: border-box;
+    padding: .3em;
+}
+
+.fade-up {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  .animate-fadeUp {
+    animation: fadeUp 1s ease-out;
+  }
+  
+  .vanish {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+  .animate-appear {
+    animation: appear 1.3s ease-in-out;
+  }
+
+
+.table-toggle{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5em;
+    gap: .8em;
+}
+ 
+.table-toggle a {
+    background-color: rgb(88, 88, 97);
+    width: 2.5em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+
+     color: white;
+}
+
+
+footer {
+    padding: 40px 20px;
+    background-color: #141414;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.footer-section p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d1d1d1;
+}
+
+.footer-section img {
+    max-width: 70px;
+}
+
+.company h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.company p {
+    font-size: 14px;
+    color: #d1d1d1;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #38a6ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+}
 
 
 
+.navbar {
+    background-color: #141414;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
 
+.navbar .logo img {
+    width: 90px;
+    height: 50px;
+    margin-right: 8px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: #38a6ff;
+}
+
+.navbar .active {
+    color: #38a6ff;
+}
+
+.account-balance {
+    margin-right: 0px;
+}
+
+.account-balance a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.account-balance a:hover {
+    color: #38a6ff;
+}
+
+.login-btn {
+    border: 1px solid white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: rgb(5, 0, 0);
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    background-color: rgba(56, 166, 255, 0.8);
+    color: white;
+    border: 1px solid #ffffff;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
 
 
 
@@ -426,7 +743,11 @@ padding: .1em .5em;
 
 
 
+<<<<<<< HEAD
 @media (max-width: 2080px){
+=======
+@media(max-width: 2080px){
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
 
 
     .global-mkt-wrapper ul li span,
