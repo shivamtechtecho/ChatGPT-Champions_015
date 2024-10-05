@@ -64,6 +64,9 @@ function fetchData() {
           ).textContent = `${res.data.data[0].value}/100`;
         })
         .catch((err) => console.log(err));
+<<<<<<< HEAD
+    })
+=======
       // Overall Market insights
       // Market Cap and percentage change
       document.querySelector(
@@ -86,6 +89,7 @@ function fetchData() {
         marketCapPercentageChange < 0 ? "decrease" : "increase";
     })
 
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
     .catch(function (error) {
       console.error("Error fetching market data:", error);
     });
@@ -158,9 +162,16 @@ let countdownFunction = setInterval(function () {
   let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+<<<<<<< HEAD
+
+  // Display the result in the countdown element
+  document.getElementById("countdown").innerHTML =
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+=======
   // Display the result in the countdown element
   // document.getElementById("countdown").innerHTML =
   //   days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
 
   // If the countdown is finished, display some text
   if (distance < 0) {
@@ -168,6 +179,8 @@ let countdownFunction = setInterval(function () {
     document.getElementById("countdown").innerHTML = "EXPIRED";
   }
 }, 1000);
+<<<<<<< HEAD
+=======
 
 // Animation
 
@@ -361,3 +374,4 @@ socket.onmessage = function (event) {
 
   updatePrice(newPrice);
 };
+>>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912

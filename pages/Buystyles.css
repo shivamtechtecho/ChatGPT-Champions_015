@@ -1,0 +1,443 @@
+/*-----------------------------------*\
+    #HEADER
+\*-----------------------------------*/
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background-color: #141414;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    width: 50px;
+    height: 40px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: #38a6ff;
+}
+
+.navbar .active {
+    color: #38a6ff;
+}
+
+.login-btn {
+    border: 1px solid white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: rgb(5, 0, 0);
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    background-color: rgba(56, 166, 255, 0.8);
+    color: white;
+    border: 1px solid #ffffff;
+}
+
+/*-----------------------------------*\
+    #Main
+\*-----------------------------------*/
+
+main {
+    padding: 40px;
+}
+
+.crypto-table h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.separator-image {
+    display: block;
+    width: 30%;
+    height: 120px;
+    margin: 10px auto;
+}
+
+
+.crypto-list {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.crypto-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.crypto-row.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;       
+    background-color: #ffffff;
+    padding: 20px;
+    border-bottom: 2px solid #333;
+    font-weight: 700;
+}
+
+.header-item {
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.header-item:first-child {
+    flex: 1.5;
+}
+
+.header-item:not(:first-child) {
+    flex: 1;
+}
+
+.crypto-info {
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+
+.crypto-info h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.crypto-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px; /* Add space between logo and name */
+}
+
+.crypto-price,
+.crypto-price-change,
+.crypto-24h-high,
+.crypto-graph,
+.crypto-actions {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+.crypto-graph img {
+    width: 100px;
+    height: 50px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buy-btn,
+.sell-btn {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.buy-btn {
+    background-color: #38a6ff;
+}
+
+.sell-btn {
+    background-color: #ff3838;
+}
+
+.buy-btn:hover {
+    background-color: #307fcc;
+}
+
+.sell-btn:hover {
+    background-color: #cc3030;
+}
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.prev-btn, .next-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: #38a6ff;
+}
+
+/*-----------------------------------*\
+    #Top Performing Crypto
+\*-----------------------------------*/
+
+.top-performing-crypto h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cryptogrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.cryptoitem {
+    position: relative;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 300px;
+}
+
+.cryptocard {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cryptoname {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    z-index: 1;
+    text-align: center;
+}
+
+.cryptoname-hover {
+    font-size: 24px;
+    font-weight: bold;
+    color: #38a6ff;
+    margin-bottom: 10px;
+}
+
+.cryptooverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.cryptoitem:hover .cryptooverlay {
+    opacity: 1;
+}
+
+.cryptooverlay p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.cryptooverlay p:hover {
+    color: #38a6ff;
+}
+
+.crypto-button-group {
+    margin-top: 70px;
+    display: flex;
+    gap: 10px;
+}
+
+.crypto-buy-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #38a6ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.crypto-sell-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #ff3838;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.crypto-buy-btn:hover {
+    background-color: #ffffff;
+    color: #38a6ff;
+}
+
+.crypto-sell-btn:hover {
+    background-color: #ffffff;
+    color: #ff3838;
+}
+
+.cryptoitem:hover {
+    transform: translateY(-5px);
+}
+@media (max-width: 900px) {
+    .cryptogrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cryptogrid {
+        grid-template-columns: 1fr;
+    }
+}
+  
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
+footer {
+    padding: 40px 20px;
+    background-color: #141414;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.footer-section p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d1d1d1;
+}
+
+.footer-section img {
+    max-width: 70px;
+}
+
+.company h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.company p {
+    font-size: 14px;
+    color: #d1d1d1;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #38a6ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
