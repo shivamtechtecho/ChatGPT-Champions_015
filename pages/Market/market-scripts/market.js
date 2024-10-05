@@ -158,10 +158,9 @@ let countdownFunction = setInterval(function () {
   let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
   // Display the result in the countdown element
-  document.getElementById("countdown").innerHTML =
-    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  // document.getElementById("countdown").innerHTML =
+  //   days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
   // If the countdown is finished, display some text
   if (distance < 0) {
@@ -250,10 +249,10 @@ fetch(apiEndpoint, options)
           </td>
           <td style="text-align: end;"><span>$${coin.market_cap.toLocaleString()}</span></td>
           <td style="text-align: end;">
-            <p>$${coin.total_volume.toLocaleString()}</p>
-            <p>${
-              coin.total_volume / coin.current_price
-            } ${coin.symbol.toUpperCase()}</p>
+            <p>$${coin.total_volume.toFixed(4).toLocaleString()}</p>
+            <p>${(coin.total_volume / coin.current_price).toFixed(
+              4
+            )} ${coin.symbol.toUpperCase()}</p>
           </td>
           <td style="text-align: end;"><p>${coin.circulating_supply.toLocaleString()} ${coin.symbol.toUpperCase()}</p></td>
           <td style="text-align: end;">
@@ -268,3 +267,97 @@ fetch(apiEndpoint, options)
     });
   })
   .catch((error) => console.error("Error fetching data:", error));
+
+// COnverter logic
+
+let conversionRate = 61374.51;
+
+// Function to convert BTC to USD
+function convertBTCtoUSD(btcValue) {
+  return btcValue * conversionRate;
+}
+
+// Function to convert USD to BTC
+function convertUSDtoBTC(usdValue) {
+  return usdValue / conversionRate;
+}
+
+// Get input elements
+const btcInput = document.getElementById("btcInput");
+const usdInput = document.getElementById("usdInput");
+
+// Prevent circular updates with a flag
+let isUpdating = false;
+
+// Event listener for BTC input change (BTC to USD)
+btcInput.addEventListener("input", function () {
+  if (!isUpdating) {
+    let btcValue = parseFloat(btcInput.value);
+    if (!isNaN(btcValue)) {
+      isUpdating = true; // Set flag to avoid circular update
+      usdInput.value = convertBTCtoUSD(btcValue).toFixed(2); // Convert BTC to USD
+      isUpdating = false; // Unset flag after update
+    } else {
+      usdInput.value = ""; // Clear USD input if BTC value is invalid
+    }
+  }
+});
+
+// Event listener for USD input change (USD to BTC)
+usdInput.addEventListener("input", function () {
+  if (!isUpdating) {
+    let usdValue = parseFloat(usdInput.value);
+    if (!isNaN(usdValue)) {
+      isUpdating = true; // Set flag to avoid circular update
+      btcInput.value = convertUSDtoBTC(usdValue).toFixed(8); // Convert USD to BTC
+      isUpdating = false; // Unset flag after update
+    } else {
+      btcInput.value = ""; // Clear BTC input if USD value is invalid
+    }
+  }
+});
+
+// Price Tickers
+// Placeholder for previous price to compare changes
+let previousPrice = 61374.51;
+
+// Get the DOM elements
+const priceElement = document.getElementById("price");
+const changeElement = document.getElementById("change");
+
+// Simulating real-time price data from WebSocket
+function updatePrice(newPrice) {
+  const oldPrice = previousPrice;
+  previousPrice = newPrice;
+
+  // Update price in the DOM
+  priceElement.textContent = `$${newPrice.toFixed(2)}`;
+
+  // Compare old and new prices
+  if (newPrice > oldPrice) {
+    priceElement.classList.add("price-up");
+    priceElement.classList.remove("price-down", "price-no-change");
+  } else if (newPrice < oldPrice) {
+    priceElement.classList.add("price-down");
+    priceElement.classList.remove("price-up", "price-no-change");
+  } else {
+    priceElement.classList.add("price-no-change");
+    priceElement.classList.remove("price-up", "price-down");
+  }
+
+  // Reset animation class after the animation ends
+  setTimeout(() => {
+    priceElement.classList.remove("price-up", "price-down");
+  }, 500);
+}
+
+// Example WebSocket connection (e.g., Binance WebSocket)
+const socket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@ticker");
+
+// Handle incoming messages from WebSocket
+socket.onmessage = function (event) {
+  const data = JSON.parse(event.data);
+  const newPrice = parseFloat(data.c); // 'c' is the current price
+
+  updatePrice(newPrice);
+};
