@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/90b32dcee6.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles-market/mkt-detail.css">
+    <title>Currency</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="./BuySell_Images/logo.svg" alt="logo">
+            <a href="#" class="active">CryptoFI</a>
+        </div>
+        <div class="menu">
+            <a href="#">Homepage</a>
+            <a href="#">Buy / Sell Crypto</a>
+            <a href="#">Markets</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Blog</a>
+        </div>
+        <div class="account-balance">
+            <a href="portfolio.html">Account Balance = $500</a>
+        </div>
+        <a href="#" class="login-btn">Log In / Sign Up</a>
+    </div>
+
+
+    <!-- <header class="header" data-header>
+        <div class="container">
+    
+          <a href="#" class="logo">
+            <img src="./WhatsApp Image 2024-10-02 at 12.20.13 AM.jpeg" width="80" height="80" alt="Cryptex logo">
+            CryptoFI
+          </a>
+    
+          <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link active" data-nav-link>Homepage</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link" data-nav-link>Buy & Sell Crypto</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link" data-nav-link>Markets</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link" data-nav-link>Portfolio</a>
+              </li>
+    
+              <li class="navbar-item">
+                <a href="#" class="navbar-link" data-nav-link>Blog</a>
+              </li>
+    
+              
+    
+            </ul>
+          </nav>
+    
+          <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </button>
+    
+          <a href="#" class="btn btn-outline">Wallet</a>
+    
+         
+    
+          <a href="#" class="btn btn-outline">Login</a>
+    
+        </div>
+      </header> -->
+    <div class="flex-wrapper">
+        <div class="coin-detail">
+            <div id="grid-coin-name" class="coin-name-top">
+                <div class="coin-wrap">
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" alt="">
+                    <span>Bitcoin  <span>BTC</span></span>
+                   
+                </div>
+                <div class="icon-wrap">
+                    <a href="#"><i class="fa-regular fa-star"></i> 5M</a>
+                    <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                </div>
+            </div>   
+            
+            <!-- 
+            Coin Price
+            -->
+            <articl class="coin-mainprice">
+                <p>$61,374.51</p>
+                <span class=><i class="fa-solid fa-sort-up"></i> 1.23% (1d)</span>
+            </articl>
+
+            <!-- 
+            MArket capital
+             -->
+            <div class="market-cap">
+                <span>Market cap <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                    <!-- <span id="percent" class=><i class="fa-solid fa-sort-up"></i> 1.23% (1d)</span> -->
+                    <span id="percent" ><i class="fa-solid fa-sort-up"></i> 1.23% (1d)</span>
+                    <span>$1,212,930,431,752</span>
+                </div>
+            </div>
+            <div class="ruler">
+                <div class="range"></div>
+                <p>#1</p>
+            </div>
+            <!-- 
+            Volume 
+             -->
+             <div class="market-cap oneone ">
+                <span>Volume (24h)<i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                    <span id="percent"  style="color: red;"><i style="color: red;" class="fa-solid fa-sort-down"></i> 1.23% (1d)</span>
+                    <span>$32,859,110,335</span>
+                </div>
+            </div>
+            <div id="ruler2" class="ruler">
+                <div class="range"></div>
+                <p>#2</p>
+            </div>
+            <!--
+             Volume  24h/ cap
+              -->
+            <div class="market-cap oneone ">
+              <span>Volume/Market cap (24h) (24h)<i class="fa-solid fa-circle-info"></i></span>
+              <div class="val">
+                  <span id="v-c-cap" ><i  class="fa-solid fa-sort-down"></i> 1.23% (1d)</span> 
+              </div>
+            </div>
+
+
+            <!-- 
+            Curculstion Supply
+             -->
+
+             <div class="market-cap">
+                <span>Circulating supply <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                
+                    <span>19,762,771 BTC</span>
+                </div>
+            </div>
+            <div id="ruler3" class="ruler">
+                <div class="range"></div>
+                <p>94.11%</p>
+            </div>
+
+            <!-- 
+            Supply
+             -->
+            <div class="supply">
+            <div class="market-cap">
+                <span>Total Supply <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                
+                    <span>19,762,771 BTC</span>
+                </div>
+            </div>
+            <div class="market-cap">
+                <span>Max. supply <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                
+                    <span>21,000,000 BTC</span>
+                </div>
+            </div>
+            <div class="market-cap">
+                <span>Fully diluted market cap <i class="fa-solid fa-circle-info"></i></span>
+                <div class="val">
+                
+                    <span>19,762,771 BTC</span>
+                </div>
+            </div>
+        </div>
+
+            <!-- 
+            Socials
+             -->
+             <div class="load-border"></div>
+            <div class="social-coin">
+                <h3>Official links</h3>
+                <div class="links-toggles">
+                    <a href="https://bitcoin.org/en/"><i class="fa-solid fa-globe"></i> Website</a>
+                    <a href="https://bitcoin.org/bitcoin.pdf"><i class="fa-regular fa-file"></i> Whitepaper</a>
+                    <a href="https://github.com/bitcoin/bitcoin"><i class="fa-brands fa-github"></i> GitHub</a>
+                </div>
+            </div>
+            <div class="load-border"></div>
+
+            <div class="social-coin">
+                <h3>Socials</h3>
+                <div class="links-toggles">
+                    <a href="https://bitcoin.org/en/"><i class="fa-brands fa-reddit-alien"></i> Reddit</a>
+                    <a href="https://bitcoin.org/bitcoin.pdf"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                    
+                </div>
+            </div>
+
+            <!-- 
+            Rating
+             -->
+             <div class="load-border"></div>
+
+            <div class="rating">
+                <div class="rating-first">
+                    <p>Rating</p>
+                    <i class="fa-solid fa-circle"></i>
+                    <span>Based on 2 institutional ratings</span>
+                </div>
+                <div class="rating-sec">
+                    <p>4.9</p>
+                    <span>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </span>
+                    <i class="fa-solid fa-circle-info"></i>
+
+                </div>
+            </div>
+
+
+
+            <!-- 
+            Network Information 
+            -->
+            <div class="load-border"></div>
+
+            <div class="social-coin">
+                <h3>Network Information</h3>
+                <div class="links-toggles">
+                    <a href="https://bitcoin.org/en/"><i class="fa-solid fa-magnifying-glass"></i> Chain explorers <i class="fa-solid fa-angle-down"></i> </a>
+                    <a href="https://bitcoin.org/bitcoin.pdf"><i class="fa-solid fa-wallet"></i></i> Suppoerted Wallet</a>    
+                </div>
+            </div>
+
+            <!-- 
+            USD BTC converter
+             -->
+             <div class="load-border"></div>
+             <div class="btc-converter">
+                <p>BTC to USD converter</p>
+                <div class="input-convert">
+                    <div class="cont">
+                        <label for="BTC">BTC</label>
+                        <input type="number" id="btcInput" placeholder="1" step="0.00000001">
+                    </div>
+                    <div class="cont">
+                        <label for="USD">USD</label>
+                        <input type="number" id="usdInput" placeholder="61374.51" step="0.01">
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 
+            Price performance 
+            -->
+            <div class="load-border"></div>
+            <div id="price-pridc" class=" ">
+                <span>Price performance</span>
+                <div class="val">
+                    <span id="v-c-cap" >24h <i class="fa-solid fa-angle-down"></i></span> 
+                </div>
+              </div>
+
+
+            
+            <!-- 
+              Today Low high 
+            -->
+            <div class="low-high">
+                <div class="low-side">
+                    <p>Low</p>
+                    <span>$59,878.90</span>
+                </div>
+                <div class="high-side">
+                    <p>High</p>
+                    <span>$61,630.61</span>
+                </div>
+            </div>
+            <div id="ruler564trg" class="ruler">
+                <div class="range"></div>
+
+            </div>
+
+            <div class="low-high">
+                <div class="low-side">
+                    <span>All time high</span>
+                    <p>Mar 14, 2024 (7 month ago)</p>
+                </div>
+                <div class="high-side">
+                    <span>$73,750.07</span>
+                    <p id="kill-me">-16.78%</p>
+                </div>
+            </div>
+
+            <div class="low-high">
+                <div class="low-side">
+                    <span>All time low</span>
+                    <p>Jul 15, 2010 (14 years ago)</p>
+                </div>
+                <div class="high-side">
+                    <span>$0.04865</span>
+                    <p style=" color: rgb(2, 192, 2);">+126166973.37%</p>
+                </div>
+            </div>
+
+            <!-- 
+            Historical 
+             -->
+            <div class="historical-data">
+                <a style="color: rgb(98, 131, 252);background-color: transparent;; font-weight: 500; font-size: 14px;" href="#">See historical data</a>
+            </div>
+
+            <div class="load-border"></div>
+
+
+            <!-- 
+            Tags
+            -->
+        
+                <div class="social-coin">
+                    <h3>Tags</h3>
+                    <div id="tags" class="links-toggles tags">
+                        <a href="https://coinmarketcap.com/view/mineable/">Mineable</a>
+                        <a href="https://coinmarketcap.com/view/pow/">PoW</a>
+                        <a href="https://coinmarketcap.com/view/sha-256/">SHA 256</a>
+                        <span><a style="color: rgb(98, 131, 252);background-color: transparent;; font-weight: 500; font-size: 14px;" href="#">Show all</a></span>
+                        
+                    </div>
+                    
+                </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="trading-window">
+            <div id="grid-coin-name1" class="coin-name-top">
+                <div class="coin-wrap">
+                    <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" alt="">
+                    <span>Bitcoin  <span>BTC</span></span>
+                   
+                </div>
+                <div class="icon-wrap">
+                    <a href="#"><i class="fa-regular fa-star"></i> 5M</a>
+                    <a href="#"><i class="fa-solid fa-share-nodes"></i></a>
+                </div>
+            </div>   
+            
+            <!-- 
+            Coin Price
+            -->
+            <articl id="coin-price-1" class="coin-mainprice1">
+                <p>$61,374.51</p>
+                <span class=><i class="fa-solid fa-sort-up"></i> 1.23% (1d)</span>
+            </articl>
+
+            <div class="coin-chart"></div>
+            <div class="trade-type">
+                <div id="trade-templete" class="content">
+                    <p>Choose your <span>Crypto Trade <i class="fa-solid fa-arrow-right"></i></span> </p>
+                    <span>Make trading fun give <span>0% interest </span> in leverage.</span>
+                </div>
+                <div class="choose-trade">
+                    <a href="#">Spot</a>
+                    <a href="#">Future</a>
+                    <a href="#">USD5-M</a>
+                    <a href="#">COIN-M</a>
+                    <a href="#">Options</a>
+                    <a href="#">Bots</a>
+                    <a href="#">Copy Trading <sup>New</sup></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section company">
+                <img src="./BuySell_Images/logo.svg" alt="CryptoFI Logo">
+                <h3>CryptoFI</h3>
+                <p>Let's talk! <span>👍</span></p>
+                <p>+12 345 678 9101</p>
+                <p>hello.cryptoFI@gmail.com</p>
+                <p>Cecilia Chapman 711-2880 Nulla St. Bangalore <br>Bangalore 96522</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>PRODUCTS</h4>
+                <p>Spot</p>
+                <p>Inverse Perpetual</p>
+                <p>USDT Perpetual</p>
+                <p>Exchange</p>
+                <p>Launchpad</p>
+                <p>Binance Pay</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>SERVICES</h4>
+                <p>Buy Crypto</p>
+                <p>Markets</p>
+                <p>Tranding Fee</p>
+                <p>Affiliate Program</p>
+                <p>Referral Program</p>
+                <p>API</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>SUPPORT</h4>
+                <p>Bybit Learn</p>
+                <p>Help Center</p>
+                <p>User Feedback</p>
+                <p>Submit a request</p>
+                <p>API Documentation</p>
+                <p>Trading Rules</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>ABOUT US</h4>
+                <p>About Bybit</p>
+                <p>Authenticity Check</p>
+                <p>Careers</p>
+                <p>Business Contacts</p>
+                <p>Blog</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2022 CryptoFI All Rights Reserved by <a href="#">ChatGPT_Champions_015</a></p>
+            <div class="social-icons">
+                <a href="#"><img src="./BuySell_Images/fb.png" alt="Facebook"></a>
+                <a href="#"><img src="./BuySell_Images/x.png" alt="X"></a>
+                <a href="#"><img src="./BuySell_Images/instgram.png" alt="Instagram"></a>
+                <a href="#"><img src="./BuySell_Images/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        const chartContainer = document.querySelector('.coin-chart');
+        const script = document.createElement('script');
+      
+        script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+        script.async = true;
+        
+        // Configuration object for TradingView widget
+        const config = {
+          "autosize": true,
+          "symbol": "BINANCE:BTCUSDT",
+          "interval": "D",
+          "timezone": "Etc/UTC",
+          "theme": "dark",
+          "style": "1",
+          "locale": "en",
+          "hide_legend": true,
+          "allow_symbol_change": false,
+          "save_image": false,
+          "calendar": false,
+          "overrides": {
+    "paneProperties.background": "#000000", // Chart background color
+    "paneProperties.vertGridProperties.color": "#363c4e", // Vertical grid color
+    "paneProperties.horzGridProperties.color": "#363c4e", // Horizontal grid color
+    "scalesProperties.textColor": "#ffffff", // Text color on scales
+    "mainSeriesProperties.candleStyle.upColor": "#26a69a", // Up candle color
+    "mainSeriesProperties.candleStyle.downColor": "#ef5350", // Down candle color
+    "mainSeriesProperties.candleStyle.borderUpColor": "#26a69a", // Up border color
+    "mainSeriesProperties.candleStyle.borderDownColor": "#ef5350", // Down border color
+    "mainSeriesProperties.candleStyle.wickUpColor": "#26a69a", // Up wick color
+    "mainSeriesProperties.candleStyle.wickDownColor": "#ef5350" // Down wick color
+  },
+          "support_host": "https://www.tradingview.com"
+        };
+      
+        // Set the config as a text inside the script tag
+        script.innerHTML = JSON.stringify(config);
+      
+        // Append the script inside the .coin-chart container
+        chartContainer.appendChild(script);
+      </script>
+      <script>
+        // Placeholder for previous price to compare changes
+let previousPrice = 61374.51;
+
+// Get the DOM elements
+const priceElement = document.querySelector(".coin-mainprice > p");
+const changeElement = document.getElementById("change");
+
+// Simulating real-time price data from WebSocket
+function updatePrice(newPrice) {
+  const oldPrice = previousPrice;
+  previousPrice = newPrice;
+
+  // Update price in the DOM
+  priceElement.textContent = `$${newPrice.toFixed(2)}`;
+//   console.log(newPrice,oldPrice);
+  
+  // Compare old and new prices
+  if (newPrice > oldPrice) {
+    priceElement.classList.add("price-up");
+    priceElement.classList.remove("price-down", "price-no-change");
+  } else if (newPrice < oldPrice) {
+    priceElement.classList.add("price-down");
+    priceElement.classList.remove("price-up", "price-no-change");
+  } else {
+    priceElement.classList.add("price-no-change");
+    priceElement.classList.remove("price-up", "price-down");
+  }
+
+  // Reset animation class after the animation ends
+  setTimeout(() => {
+    priceElement.classList.remove("price-up", "price-down");
+  }, 500);
+}
+
+// Example WebSocket connection (e.g., Binance WebSocket)
+const socket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@ticker");
+
+// Handle incoming messages from WebSocket
+socket.onmessage = function (event) {
+  const data = JSON.parse(event.data);
+  const newPrice = parseFloat(data.c); // 'c' is the current price
+//   console.log(data);
+  
+  updatePrice(newPrice);
+};
+
+      </script>
+<script src="./market-scripts/animation.js"></script>
+<script src="./market-scripts/market.js"></script>
+</body>
+</html>
