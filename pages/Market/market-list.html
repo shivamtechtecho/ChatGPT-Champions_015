@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles-market/market-list.css">
+    <!-- utills -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/90b32dcee6.js" crossorigin="anonymous"></script>
+    <title>Trending Market</title>
+</head>
+<body>
+  <!-- global market overview -->
+    <header class="global-mkt">
+      <!-- Global Market Overview -->
+        <div class="global-mkt-wrapper">
+            <ul>
+                <li><span>Crypto:</span><a href="#">--M+</a></li>
+                <li><span>Exchanges:</span><a href="#">--</a></li>
+                <li><span>Market Cap:</span><a href="#">$--</a><p><i class="fa-solid fa-sort-down"></i> 3.41%</p></li>
+                <li><span>24th Vol:</span><a href="#">$--</a><p><i class="fa-solid fa-sort-up"></i> 40.20%</p></li>
+                <li><span>Dominance:</span><a id="dom-btc" href="#">--%</a><a id="dom-eth" href="#">--%</a></li>
+                <li><span><i class="fa-solid fa-gas-pump"></i>ETH Gas:</span><a href="#">5.46 Gwel</a></li>
+                <li><span>Fear & Greed: </span><a href="#">--/100</a></li>
+            </ul>
+            <ul>
+                <li><a href="#">Get listed <i class="fa-solid fa-angle-down"></i></a></li>
+                <li><a href="#">API</a></li>
+            </ul>
+        </div>
+    
+    </header>
+  
+  <!-- Market Head -->
+    <section class="head-desc">
+        <!-- Global Market Overview -->
+      <div class="head-desc-wrapper">
+        <h1>Today's <span>Cryptocurrency</span> Prices by Market Cap</h1>
+        <p>The global crypto market cap is <span>--</span>, a <span>--%</span><span>NA</span>over the last day. <a href="#">Read More</a></p>
+      </div>
+    </section>
+
+  <!-- Slider Cards -->
+   <section class="slide-card">
+    <div class="slide-card-wrapper">
+      <div class="slider-container">
+        <!-- First Slider -->
+        <div class="slider-wrapper">
+          <div class="slider" id="slider1">
+            <div class="slide">
+              <ul>
+                <li><p><span>🔥</span>Trending</p></li>
+                <li><a href="#">More <i class="fa-solid fa-angle-right"></i></a></li> 
+              </ul>
+              <ul>
+                <li>
+                  <img  src="https://s2.coinmarketcap.com/static/img/coins/64x64/32103.png" alt="">
+                  <p>Ripple</p>
+                  <span>XRP</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-sort-up"></i>
+                  <p>0.02%</p>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <img  src="https://s2.coinmarketcap.com/static/img/coins/64x64/32103.png" alt="">
+                  <p>Ripple</p>
+                  <span>XRP</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-sort-up"></i>
+                  <p>0.02%</p>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <img  src="https://s2.coinmarketcap.com/static/img/coins/64x64/32103.png" alt="">
+                  <p>Ripple</p>
+                  <span>XRP</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-sort-up"></i>
+                  <p>0.02%</p>
+                </li>
+              </ul>
+            </div>
+            <div class="slide">
+              <ul>
+                <li><p><span>🔥</span>Trending</p></li>
+                <li><a href="#">More <i class="fa-solid fa-angle-right"></i></a></li> 
+              </ul>
+              <ul>
+                <li>
+                  <img  src="https://s2.coinmarketcap.com/static/img/coins/64x64/32103.png" alt="">
+                  <p>Ripple</p>
+                  <span>XRP</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-sort-up"></i>
+                  <p>0.02%</p>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <img  src="https://s2.coinmarketcap.com/static/img/coins/64x64/32103.png" alt="">
+                  <p>Ripple</p>
+                  <span>XRP</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-sort-up"></i>
+                  <p>0.02%</p>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <img  src="https://s2.coinmarketcap.com/static/img/coins/64x64/32103.png" alt="">
+                  <p>Ripple</p>
+                  <span>XRP</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-sort-up"></i>
+                  <p>0.02%</p>
+                </li>
+              </ul>
+            </div>
+            <div class="slide">
+              <ul>
+                <li><p><span>🔥</span>Trending</p></li>
+                <li><a href="#">More <i class="fa-solid fa-angle-right"></i></a></li> 
+              </ul>
+              <ul>
+                <li>
+                  <img  src="https://s2.coinmarketcap.com/static/img/coins/64x64/32103.png" alt="">
+                  <p>Ripple</p>
+                  <span>XRP</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-sort-up"></i>
+                  <p>0.02%</p>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <img  src="https://s2.coinmarketcap.com/static/img/coins/64x64/32103.png" alt="">
+                  <p>Ripple</p>
+                  <span>XRP</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-sort-up"></i>
+                  <p>0.02%</p>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <img  src="https://s2.coinmarketcap.com/static/img/coins/64x64/32103.png" alt="">
+                  <p>Ripple</p>
+                  <span>XRP</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-sort-up"></i>
+                  <p>0.02%</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="indicators" id="indicators1">
+            <span class="dot" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+          </div>
+        </div>
+      
+        <!-- Second Slider -->
+        <div class="slider-wrapper">
+          <div class="slider" id="slider2">
+            <div class="slide" id="slide11">
+              <blockquote class="twitter-tweet"><p lang="en" dir="ltr">You should also check on <a href="https://twitter.com/search?q=%24MANE&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$MANE</a> <br>MANE is burning down the market!! <a href="https://twitter.com/search?q=%24MANE&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$MANE</a> <a href="https://twitter.com/hashtag/MANE?src=hash&amp;ref_src=twsrc%5Etfw">#MANE</a> <a href="https://twitter.com/hashtag/CRYPTO?src=hash&amp;ref_src=twsrc%5Etfw">#CRYPTO</a> <a href="https://twitter.com/hashtag/BSC?src=hash&amp;ref_src=twsrc%5Etfw">#BSC</a></p>&mdash; Mohammad Munna $0 (@0xMohammad99) <a href="https://twitter.com/0xMohammad99/status/1831410602230890974?ref_src=twsrc%5Etfw">September 4, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <div class="slide">
+              <blockquote class="twitter-tweet" data-cards="hidden"><p lang="en" dir="ltr">🚀 The moon is for amateurs… **Yalla Sun** is aiming straight for the SUN! 🌞 Join the movement where the community reigns and <a href="https://twitter.com/search?q=%24YSU&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$YSU</a> burns brighter every day. 🔥 <a href="https://twitter.com/hashtag/Crypto?src=hash&amp;ref_src=twsrc%5Etfw">#Crypto</a> <a href="https://twitter.com/hashtag/MemeCoin?src=hash&amp;ref_src=twsrc%5Etfw">#MemeCoin</a> <a href="https://twitter.com/hashtag/TRX?src=hash&amp;ref_src=twsrc%5Etfw">#TRX</a> <a href="https://twitter.com/hashtag/YSU?src=hash&amp;ref_src=twsrc%5Etfw">#YSU</a> <a href="https://twitter.com/hashtag/Web3?src=hash&amp;ref_src=twsrc%5Etfw">#Web3</a> <a href="https://t.co/f447SQHIAE">pic.twitter.com/f447SQHIAE</a></p>&mdash; الـكابـتن ⚓️ (@Cap_306) <a href="https://twitter.com/Cap_306/status/1835406368490054102?ref_src=twsrc%5Etfw">September 15, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <div class="slide">
+              <blockquote class="twitter-tweet" data-cards="hidden"><p lang="en" dir="ltr">🚀 The moon is for amateurs… **Yalla Sun** is aiming straight for the SUN! 🌞 Join the movement where the community reigns and <a href="https://twitter.com/search?q=%24YSU&amp;src=ctag&amp;ref_src=twsrc%5Etfw">$YSU</a> burns brighter every day. 🔥 <a href="https://twitter.com/hashtag/Crypto?src=hash&amp;ref_src=twsrc%5Etfw">#Crypto</a> <a href="https://twitter.com/hashtag/MemeCoin?src=hash&amp;ref_src=twsrc%5Etfw">#MemeCoin</a> <a href="https://twitter.com/hashtag/TRX?src=hash&amp;ref_src=twsrc%5Etfw">#TRX</a> <a href="https://twitter.com/hashtag/YSU?src=hash&amp;ref_src=twsrc%5Etfw">#YSU</a> <a href="https://twitter.com/hashtag/Web3?src=hash&amp;ref_src=twsrc%5Etfw">#Web3</a> <a href="https://t.co/f447SQHIAE">pic.twitter.com/f447SQHIAE</a></p>&mdash; الـكابـتن ⚓️ (@Cap_306) <a href="https://twitter.com/Cap_306/status/1835406368490054102?ref_src=twsrc%5Etfw">September 15, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+          </div>
+          <div class="indicators" id="indicators2">
+            <span class="dot" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="launch-div">
+          <p>Launch Soon🚀</p>
+          <a href="#">know more <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="count-down-wrap">
+          <p>Get Ready for <br> <span>Royal Finance Coin (RFC)</span></p>
+        <div id="countdown"></div>
+        </div>
+      </div>
+    </div>
+   </section>
+
+   <!-- Category list -->
+    <section class="category">
+      <div class="category-wrap">
+        <ul>
+          <li><a href="#"><i class="fa-brands fa-squarespace"></i> All</a></li>
+          <li><a href="#"><i class="fa-solid fa-circle-half-stroke"></i> NFTs</a></li>
+          <li><a href="#"><i class="fa-solid fa-list"></i> Categories</a></li>
+          <li><a href="#"><i class="fa-solid fa-unlock"></i> Token unlocks</a></li>
+          <li><a href="#">🔥 Memes</a></li>
+          <li><a href="#">🔥 Solana Eco</a></li>
+          <li><a href="#">🔥 AI</a></li>
+          <li><a href="#">🔥 Gamming</a></li>
+          <li><a href="#">🔥 RWA</a></li>
+          <li><a href="#">🔥 DePIN</a></li>
+        </ul>
+
+        <ul>
+          <li><a href="#"><i class="fa-solid fa-sliders"></i> Filters</a></li>
+          <li><a href="#"><i class="fa-brands fa-intercom"></i> Customize</a></li>
+          <li><input type="text" placeholder="seach your crypto"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+
+          <li>
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-dice-four"></i>
+          </li>
+        </ul>
+      </div>
+    </section>
+  
+  
+
+<script src="./market-scripts/market.js"></script>
+
+</body>
+</html>

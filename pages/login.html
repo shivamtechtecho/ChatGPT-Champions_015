@@ -3,9 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CryptoFI Login & Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./loginStyles.css">
 </head>
 <body>
-    <h1>This is login page</h1>
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="./BuySell_Images/logo.png" alt="logo">
+            <a href="../index.html" class="active">CryptoFI</a>
+        </div>
+    </div>
+
+    <div class="auth-container">
+        <div class="login-box">
+            <h2>Login / Signup</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="button" onclick="login()">Login</button>
+                <p id="error-message" class="error-message"></p>
+                <div class="signup-options">
+                    <p>Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Sign Up Box -->
+        <div class="signup-box" id="signupBox" style="display:none;">
+            <h2>Create Account</h2>
+            <form id="signupForm">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="button" onclick="signup()">Sign Up with Email</button>
+                <div class="divider">OR</div>
+                <div class="social-signup">
+                    <button type="button" class="apple-btn">Sign Up with Apple</button>
+                    <button type="button" class="google-btn">Sign Up with Google</button>
+                    <button type="button" class="microsoft-btn">Sign Up with Microsoft</button>
+                </div>
+                <p id="signup-error-message" class="error-message"></p>
+                <div class="back-to-login">
+                    <p>Already have an account? <a href="#" onclick="showLogin()">Log In</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section company">
+                <img src="./BuySell_Images/logo.png" alt="CryptoFI Logo">
+                <h3>CryptoFI</h3>
+                <p>Let's talk! <span>👍</span></p>
+                <p>+12 345 678 9101</p>
+                <p>hello.cryptoFI@gmail.com</p>
+                <p>Cecilia Chapman 711-2880 Nulla St. Mankato <br>Mississippi 96522</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>PRODUCTS</h4>
+                <p>Spot</p>
+                <p>Inverse Perpetual</p>
+                <p>USDT Perpetual</p>
+                <p>Exchange</p>
+                <p>Launchpad</p>
+                <p>Binance Pay</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>SERVICES</h4>
+                <p>Buy Crypto</p>
+                <p>Markets</p>
+                <p>Tranding Fee</p>
+                <p>Affiliate Program</p>
+                <p>Referral Program</p>
+                <p>API</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>SUPPORT</h4>
+                <p>Bybit Learn</p>
+                <p>Help Center</p>
+                <p>User Feedback</p>
+                <p>Submit a request</p>
+                <p>API Documentation</p>
+                <p>Trading Rules</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>ABOUT US</h4>
+                <p>About Bybit</p>
+                <p>Authenticity Check</p>
+                <p>Careers</p>
+                <p>Business Contacts</p>
+                <p>Blog</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2022 CryptoFI All Rights Reserved by <a href="#">ChatGPT_Champions_015</a></p>
+            <div class="social-icons">
+                <a href="#"><img src="./BuySell_Images/fb.png" alt="Facebook"></a>
+                <a href="#"><img src="./BuySell_Images/x.png" alt="X"></a>
+                <a href="#"><img src="./BuySell_Images/instgram.png" alt="Instagram"></a>
+                <a href="#"><img src="./BuySell_Images/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hardcodedUsername = "user123";
+        const hardcodedPassword = "password123";
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (username === hardcodedUsername && password === hardcodedPassword) {
+                window.location.href = "homepage.html";
+            } else {
+                errorMessage.textContent = "Invalid username or password!";
+            }
+        }
+
+        function signup() {
+            const email = document.getElementById('email').value;
+            alert('Account created successfully for ' + email);
+            window.location.href = "homepage.html";
+        }
+
+        function showSignup() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupBox').style.display = 'block';
+        }
+
+        function showLogin() {
+            document.getElementById('signupBox').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
+    </script>
 </body>
 </html>

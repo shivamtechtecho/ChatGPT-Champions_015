@@ -20,9 +20,8 @@ body {
 }
 
 .navbar .logo img {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
+    width: 50px;
+    height: 40px;
 }
 
 .navbar a {
@@ -50,8 +49,8 @@ body {
 }
 
 .login-btn:hover {
-    background-color: #38a6ff;
-    color: black;
+    background-color: rgba(56, 166, 255, 0.8);
+    color: white;
     border: 1px solid #ffffff;
 }
 
@@ -68,6 +67,14 @@ main {
     margin-bottom: 30px;
     text-align: center;
 }
+
+.separator-image {
+    display: block;
+    width: 30%;
+    height: 120px;
+    margin: 10px auto;
+}
+
 
 .crypto-list {
     max-width: 1000px;
@@ -251,6 +258,12 @@ main {
     text-align: center;
 }
 
+.cryptoname-hover {
+    font-size: 24px;
+    font-weight: bold;
+    color: #38a6ff;
+    margin-bottom: 10px;
+}
 
 .cryptooverlay {
     position: absolute;
@@ -263,8 +276,9 @@ main {
     opacity: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 20px;
     transition: opacity 0.3s ease;
 }
 
@@ -278,18 +292,53 @@ main {
     color: #ddd;
 }
 
-.cryptograph-placeholder {
-    margin-top: 10px;
-    height: 50px;
-    width: 100%;
-    background-color: #ccc;
+.cryptooverlay p:hover {
+    color: #38a6ff;
+}
+
+.crypto-button-group {
+    margin-top: 70px;
+    display: flex;
+    gap: 10px;
+}
+
+.crypto-buy-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #38a6ff;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.crypto-sell-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #ff3838;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.crypto-buy-btn:hover {
+    background-color: #ffffff;
+    color: #38a6ff;
+}
+
+.crypto-sell-btn:hover {
+    background-color: #ffffff;
+    color: #ff3838;
 }
 
 .cryptoitem:hover {
     transform: translateY(-5px);
 }
-
 @media (max-width: 900px) {
     .cryptogrid {
         grid-template-columns: repeat(2, 1fr);
@@ -337,6 +386,10 @@ footer {
     font-size: 14px;
     line-height: 1.6;
     color: #d1d1d1;
+}
+
+.footer-section img {
+    max-width: 70px;
 }
 
 .company h3 {
