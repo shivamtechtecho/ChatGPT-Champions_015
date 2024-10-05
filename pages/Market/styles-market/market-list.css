@@ -144,15 +144,6 @@ body{
   .slide {
     min-width: 100%;
     border-radius: 8px;
-<<<<<<< HEAD
-    background-color: #ddd;
-    padding: .2em .3em;
-    text-align: center;
-    font-size: 16px;
-    border: 1px solid #ccc;
-
-  }
-=======
     background-color: rgb(19, 19, 21);
     padding: .2em .3em;
     text-align: center;
@@ -164,7 +155,6 @@ body{
   .slide:nth-child(2){
     border: none;
   }
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
   
   .indicators {
     text-align: center;
@@ -232,13 +222,10 @@ body{
 
   
   .slide-card-wrapper{
-<<<<<<< HEAD
-=======
     border: 2px solid silver;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.8);
    
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
     box-sizing: border-box;
     display: flex;
     width: 70%;
@@ -250,9 +237,6 @@ body{
     padding: 2em;
     grid-template-columns: repeat(2,1fr);
     margin-bottom: 2em;
-<<<<<<< HEAD
-  }
-=======
     position: relative;
     z-index: 1;
   }
@@ -272,7 +256,6 @@ body{
     border-radius: 12px
 } */
 
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
   .slide-card-wrapper .card{
     background: linear-gradient(277deg, rgba(255,175,123,0.8) 0%, rgba(215,109,119,0.8) 58%, rgba(58,28,113,0.8) 100%),
     url('https://cryptonews.com/wp-content/uploads/2023/10/1698859163-new-cryptocurrency-to-buy.jpg') no-repeat center center/cover;;                       
@@ -284,10 +267,6 @@ body{
         align-items: center;
         text-align: center;
         font-size: 16px;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
         color: white;  
 
   }
@@ -341,11 +320,7 @@ background: linear-gradient(243deg, rgba(255,162,0,1) 6%, rgba(255,255,255,1) 66
  
     }
 
-<<<<<<< HEAD
-    .card .count-down-wrap p span{
-=======
 .card .count-down-wrap p span{
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
         
         background: #c31432;  /* fallback for old browsers */
         background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
@@ -363,10 +338,6 @@ background: linear-gradient(243deg, rgba(255,162,0,1) 6%, rgba(255,255,255,1) 66
     background: #0f0c29;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-<<<<<<< HEAD
-    
-=======
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Make the text transparent */
     color: transparent; /* Ensure text is transparent for non-webkit browsers */
@@ -406,12 +377,9 @@ background: linear-gradient(243deg, rgba(255,162,0,1) 6%, rgba(255,255,255,1) 66
     padding: .3em .3em;
     background-color: rgb(88, 88, 97);
 }
-<<<<<<< HEAD
-=======
 .category-wrap ul li a:hover{
     background-color: rgb(64, 52, 81);
 }
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
 .category-wrap ul:first-child li:first-child a{
     background-color: rgb(186, 152, 235);
     color:black;
@@ -452,8 +420,6 @@ padding: .1em .5em;
 } 
 
 
-<<<<<<< HEAD
-=======
 /* --------------------------------- */
 /* ----------Table List --------------- */
 /* --------------------------------------- */
@@ -469,20 +435,11 @@ padding: .1em .5em;
 .list-body tr:nth-child(odd){
     background-color: rgb(36, 34, 34);
 }
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
 
 
 
 
 
-<<<<<<< HEAD
-
-
-
-
-
-
-=======
 /* LIst markert */
 .price-list{
     position: relative ;
@@ -720,7 +677,6 @@ footer {
         align-items: flex-start;
     }
 }
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
 
 
 
@@ -743,11 +699,7 @@ footer {
 
 
 
-<<<<<<< HEAD
-@media (max-width: 2080px){
-=======
 @media(max-width: 2080px){
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
 
 
     .global-mkt-wrapper ul li span,
