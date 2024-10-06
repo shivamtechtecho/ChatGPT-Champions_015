@@ -24,52 +24,66 @@
   <p id="error"></p>
 
   <script>
-    document.getElementById('fetchData').addEventListener('click', () => {
-      const loadingElement = document.getElementById('loading');
-      const resultElement = document.getElementById('result');
-      const errorElement = document.getElementById('error');
+//     document.getElementById('fetchData').addEventListener('click', () => {
+//       const loadingElement = document.getElementById('loading');
+//       const resultElement = document.getElementById('result');
+//       const errorElement = document.getElementById('error');
       
-      // Clear previous results and errors
-      resultElement.textContent = '';
-      errorElement.textContent = '';
+//       // Clear previous results and errors
+//       resultElement.textContent = '';
+//       errorElement.textContent = '';
 
-      // Show loading message
-      loadingElement.style.display = 'block';
+//       // Show loading message
+//       loadingElement.style.display = 'block';
 
-      axios.get('https://chat-gpt-backend.vercel.app/get-coinmarket-data')
-        .then(response => {
-          // Hide loading message
-          loadingElement.style.display = 'none';
-          // Display fetched data
-          resultElement.textContent = JSON.stringify(response.data, null, 2);
-        })
-        .catch(error => {
-          // Hide loading message
-          loadingElement.style.display = 'none';
-          // Display error message
-          if (error.response) {
-            errorElement.textContent = `Error: ${error.response.data.error || 'An error occurred.'}`;
-          } else {
-            errorElement.textContent = 'Error: Unable to fetch data. Please try again later.';
-          }
-        });
-    });
-<<<<<<< HEAD
-=======
+//       axios.get('https://chat-gpt-backend.vercel.app/get-coinmarket-data')
+//         .then(response => {
+//           // Hide loading message
+//           loadingElement.style.display = 'none';
+//           // Display fetched data
+//           resultElement.textContent = JSON.stringify(response.data, null, 2);
+//         })
+//         .catch(error => {
+//           // Hide loading message
+//           loadingElement.style.display = 'none';
+//           // Display error message
+//           if (error.response) {
+//             errorElement.textContent = `Error: ${error.response.data.error || 'An error occurred.'}`;
+//           } else {
+//             errorElement.textContent = 'Error: Unable to fetch data. Please try again later.';
+//           }
+//         });
+//     });
 
-    const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    'x-cg-demo-api-key': '	CG-FsyvQgVi1Nh2kTBk3HU2icLx'
-  }
+//     const options = {
+//   method: 'GET',
+//   headers: {
+//     accept: 'application/json',
+//     'x-cg-demo-api-key': '	CG-FsyvQgVi1Nh2kTBk3HU2icLx'
+//   }
+// };
+
+// fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd', options)
+//   .then(response => response.json())
+//   .then(response => console.log(response))
+//   .catch(err => console.error(err));
+const symbol = "Btc"
+const ws = new WebSocket(`wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}usdt@trade`);
+
+// Event listener for receiving data from the WebSocket
+ws.onmessage = function(event) {
+    const priceData = JSON.parse(event.data);
+    const currentPrice = parseFloat(priceData.p); // 'p' is the price field from the Binance trade event
+    // updatePrice('BTC', currentPrice); // Function to update the price in the table
+    console.log(currentPrice);
+    
 };
 
-fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
->>>>>>> 70c5adcd73302439516bcdc5d5774c5f16741912
+
+
+
+
+
   </script>
 </body>
 </html>

@@ -18,7 +18,7 @@ body{
     color: white;
     align-items: center;
     padding: .5em 1em;
-    font-size: 16px;
+    font-size: 20px;
     text-align: center;
     justify-content: space-between;
 }
@@ -435,7 +435,27 @@ padding: .1em .5em;
 .list-body tr:nth-child(odd){
     background-color: rgb(36, 34, 34);
 }
-
+.percentage_change{
+    text-align: center;
+    font-size: 13px;
+    width: 100px;
+}
+.percentage_change >span{
+    display: block;
+    gap: .5em;
+}
+.percentage_change i{
+    color: 13px
+}
+.coin-symbol{
+    color:#a8a8a8;
+    font-weight: 500;
+}
+.vol-24h p:nth-child(2){
+    font-size: 14px;
+    color: #ccc;
+    
+}
 
 
 
@@ -602,69 +622,101 @@ footer {
 
 
 
-.navbar {
+/* --------------- */
+/* NAvbar */
+header{
     background-color: #141414;
-    padding: 20px 20px;
+    width: 100%;
+    padding: .6em 1em;
+ }
+ 
+.navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.navbar .logo {
+.navbar a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+.navbar .menu {
     display: flex;
+    list-style: none;
+    justify-content: space-evenly;
     align-items: center;
 }
+.navbar .menu li{
 
+    padding: 1em;
+    transition: background-color 0.6s ease-out
+}
+.navbar .menu li:nth-child(3){
+    background-color:rgb(56, 116, 255);
+}
+.navbar .menu li:hover{
+    background-color: rgb(43, 53, 77);
+}
 .navbar .logo img {
-    width: 90px;
-    height: 50px;
-    margin-right: 8px;
+    width: 100px;
 }
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    gap: .4em;
+}
+.logo a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    font-size: 22px;
     font-weight: 600;
-    font-size: 18px;
+    line-height: 22px;
 }
 
-.navbar a:hover {
-    color: #38a6ff;
+.logo a span 
+{
+    color: rgb(1, 102, 254);
+    /* background: rgb(63,13,240);
+    background: linear-gradient(90deg, rgba(63,13,240,1) 0%, rgba(131,1,211,1) 100%);
+    -webkit-background-clip: text;
+    color: transparent;  */
+}
+.login-btn{
+    border:2px solid silver;
+    padding: .4em 1em;
+    border-radius: 16em;
+    font-weight: 700;
+    transition: background-color 0.4s ease-out ;
 }
 
-.navbar .active {
-    color: #38a6ff;
+.login-btn:hover{
+    background-color: silver;
+    color: black;
+
+}
+.burger{
+    display: none;
+}
+.burger-login-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+}
+.burger i{
+    font-size: 19px;
 }
 
-.account-balance {
-    margin-right: 0px;
-}
 
-.account-balance a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-}
 
-.account-balance a:hover {
-    color: #38a6ff;
-}
 
-.login-btn {
-    border: 1px solid white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    color: rgb(5, 0, 0);
-    text-decoration: none;
-}
 
-.login-btn:hover {
-    background-color: rgba(56, 166, 255, 0.8);
-    color: white;
-    border: 1px solid #ffffff;
-}
+
 
 @media (max-width: 768px) {
     .footer-container {
@@ -853,17 +905,35 @@ footer {
 }
 
 
+
+@media(max-width:1000px){
+    .burger{
+        display: block;
+    }
+    .navbar .menu{
+        display: none;
+    }
+    .login-btn{
+        display: none;
+    }
+}
+
+
+
+
+
 @media (max-width: 970px) {
     .global-mkt-wrapper ul li span,
     .global-mkt-wrapper ul li a,
     .global-mkt-wrapper ul li p{
-        font-size: .7em;
+        font-size: .9em;
     }
     .global-mkt-wrapper ul:first-child li:last-child{
         display: none;
     }
     .head-desc-wrapper{
         width: 90%;
+        
     }
     .head-desc-wrapper h1{
         font-size: 1.5em;
