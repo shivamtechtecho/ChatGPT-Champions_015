@@ -76,4 +76,5 @@ document.addEventListener("DOMContentLoaded", function () {
   addScrollAnimation(".low-high");
   addScrollAnimation(".navbar");
   addScrollAnimation(".content");
+  addScrollAnimation(".navbar");
 });

@@ -75,6 +75,30 @@ body{
   }
 
 
+
+
+/* animation
+ */
+ .btc-converter,
+ .trade-type >content,
+ .coin-wrap,
+ .coin-mainprice1,
+ .coin-mainprice,
+ .links-toggles,
+ .low-high,
+ 
+ .content{
+opacity: 0;
+transform: translateY(50px); /* Start slightly below its normal position */
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When the element is visible, it will animate to its final state */
+.visible {
+opacity: 1;
+transform: translateY(0); /* Moves into its final position */
+}
+
   
 
 /* Global Market Overview */
@@ -458,8 +482,6 @@ padding: .1em .5em;
 }
 
 
-
-
 /* LIst markert */
 .price-list{
     position: relative ;
@@ -818,6 +840,10 @@ header{
     .category-wrap ul:first-child li:nth-child(10),
     .category-wrap ul:first-child li:nth-child(9),
     .category-wrap ul:first-child li:nth-child(8){
+        display: none;
+    }
+    .coin-chart,
+    .price-wrapper table thead tr th:last-child{
         display: none;
     }
 }

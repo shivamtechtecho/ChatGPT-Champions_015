@@ -254,7 +254,7 @@ fetch(
             coin.market_cap_rank
           }</p></td>
           <td class="coin-name" style="text-align: start;">
-            <a style="display: flex;" href="#">
+            <a href="/pages/Market/coin-detail.html" style="display: flex;" href="#">
               <img class="coin-logo" src="${coin.image}" alt="${coin.name}">
               <p>${coin.name}</p>
               <p class="coin-symbol">${coin.symbol.toUpperCase()}</p>
@@ -308,7 +308,7 @@ fetch(
             )} ${coin.symbol.toUpperCase()}</p>
           </td>
           <td style="text-align: end;"><p>${coin.circulating_supply.toLocaleString()} ${coin.symbol.toUpperCase()}</p></td>
-          <td style="text-align: end;">
+          <td class="coin-chart" style="text-align: end;">
             <img src="https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/${
               coin.market_cap_rank
             }.svg" alt="${coin.name} 7d chart"
