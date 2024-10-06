@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Bitcoin Transactions</title>
+    <style>
+        *{
+            margin:0;
+    padding: 0;
+    font-family: "Poppins";
+    box-sizing: border-box;
+        }
+        /* Container styling */
+        body {
+            font-family: Arial, sans-serif;
+             background-color: rgb(19, 19, 21);
+            padding: 20px;
+          
+            justify-content: center;
+        }
+
+        
+
+footer {
+    padding: 40px 20px;
+    background-color: #141414;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.footer-section p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d1d1d1;
+}
+
+.footer-section img {
+    max-width: 70px;
+}
+
+.company h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.company p {
+    font-size: 14px;
+    color: #d1d1d1;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: #38a6ff;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+/* --------------- */
+/* NAvbar */
+header{
+    background-color: #141414;
+    width: 100%;
+    padding: .6em 1em;
+ }
+ 
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+.navbar .menu {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.navbar .menu li{
+
+    padding: 1em;
+    transition: background-color 0.6s ease-out
+}
+.navbar .menu li:nth-child(3){
+    background-color:rgb(56, 116, 255);
+}
+.navbar .menu li:hover{
+    background-color: rgb(43, 53, 77);
+}
+.navbar .logo img {
+    width: 100px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    gap: .4em;
+}
+.logo a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.logo a span 
+{
+    color: rgb(1, 102, 254);
+    /* background: rgb(63,13,240);
+    background: linear-gradient(90deg, rgba(63,13,240,1) 0%, rgba(131,1,211,1) 100%);
+    -webkit-background-clip: text;
+    color: transparent;  */
+}
+.login-btn{
+    border:2px solid silver;
+    padding: .4em 1em;
+    border-radius: 16em;
+    font-weight: 700;
+    transition: background-color 0.4s ease-out ;
+}
+
+.login-btn:hover{
+    background-color: silver;
+    color: black;
+
+}
+.burger{
+    display: none;
+}
+.burger-login-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+}
+.burger i{
+    font-size: 19px;
+}
+
+
+
+
+
+
+
+
+#transaction-container {
+            background-color: white;
+            width: 70%;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            min-height: 70%;
+            max-height: 700px;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Styling for each transaction */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .transaction-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            background-color: #f4f4f4;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 1;
+        }
+
+        /* When new data is added */
+        .transaction-row.enter {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        .transaction-row.slide-down {
+            transform: translateY(20px);
+        }
+
+        .transaction-row.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .addr-time{
+            display: flex;
+            flex-direction: column;
+            gap:1em;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 1em;
+        }
+
+
+
+
+        @media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+      <!--  nav bar -->
+  <header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#" class="active"><img src="./logo.jpg" alt="logo"><span>CryptoFI</span></a>
+        </div>
+        <ul class="menu">
+            <li>
+                <a href="/index.html">Homepage</a>
+            </li>
+            <li>
+                <a href="/pages/BuyCrypto.html">Buy / Sell Crypto</a>
+            </li>
+            <li>
+                <a href="/pages/Market/market-list.html">Markets</a>
+            </li>
+            <li>
+                <a href="/portfolio/portfolio.html">Portfolio</a>
+            </li>
+            <li>
+                <a href="/blog/ft36_351day2/blog.html">Blog</a>
+            </li>
+        </ul>
+        <div class="burger-login-wrap">
+        <a href="/pages/login.html" class="login-btn">Log In / Sign In</a>
+        <a class="burger" href="#"><i class="fa-solid fa-bars"></i></a>
+    </div>
+    </nav>
+</header>
+    <div id="transaction-container">
+        <h1>Latest Transactions</h1>
+        <ul id="transaction-list">
+            <!-- Transactions will be dynamically added here -->
+        </ul>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section company">
+                <img src="./BuySell_Images/logo.svg" alt="CryptoFI Logo">
+                <h3>CryptoFI</h3>
+                <p>Let's talk! <span>👍</span></p>
+                <p>+12 345 678 9101</p>
+                <p>hello.cryptoFI@gmail.com</p>
+                <p>Cecilia Chapman 711-2880 Nulla St. Bangalore <br>Bangalore 96522</p>
+            </div>
+    
+            <div class="footer-section">
+                <h4>PRODUCTS</h4>
+                <p>Spot</p>
+                <p>Inverse Perpetual</p>
+                <p>USDT Perpetual</p>
+                <p>Exchange</p>
+                <p>Launchpad</p>
+                <p>Binance Pay</p>
+            </div>
+    
+            <div class="footer-section">
+                <h4>SERVICES</h4>
+                <p>Buy Crypto</p>
+                <p>Markets</p>
+                <p>Tranding Fee</p>
+                <p>Affiliate Program</p>
+                <p>Referral Program</p>
+                <p>API</p>
+            </div>
+    
+            <div class="footer-section">
+                <h4>SUPPORT</h4>
+                <p>Bybit Learn</p>
+                <p>Help Center</p>
+                <p>User Feedback</p>
+                <p>Submit a request</p>
+                <p>API Documentation</p>
+                <p>Trading Rules</p>
+            </div>
+    
+            <div class="footer-section">
+                <h4>ABOUT US</h4>
+                <p>About Bybit</p>
+                <p>Authenticity Check</p>
+                <p>Careers</p>
+                <p>Business Contacts</p>
+                <p>Blog</p>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2022 CryptoFI All Rights Reserved by <a href="#">ChatGPT_Champions_015</a></p>
+            <div class="social-icons">
+                <a href="#"><img src="./BuySell_Images/fb.png" alt="Facebook"></a>
+                <a href="#"><img src="./BuySell_Images/x.png" alt="X"></a>
+                <a href="#"><img src="./BuySell_Images/instgram.png" alt="Instagram"></a>
+                <a href="#"><img src="./BuySell_Images/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+        </footer>
+
+    <script>
+        const socket = new WebSocket('wss://ws.blockchain.info/inv');
+        const transactionList = document.getElementById('transaction-list');
+
+        // Function to format Unix timestamps
+        function formatTimestamp(unixTimestamp) {
+            const date = new Date(unixTimestamp * 1000);
+            return date.toLocaleString();
+        }
+
+        // Function to create and insert a new transaction row
+        function addTransaction(address, time, amount) {
+            const transactionRow = document.createElement('li');
+            transactionRow.classList.add('transaction-row', 'enter');
+            transactionRow.innerHTML = `
+                <span class="addr-time"><span><strong>Address:</strong> ${address}</span>
+                    <span><strong>Date/Time:</strong> ${time}</span></span>
+                
+                <span><strong>Amount:</strong> ${amount} BTC</span>
+            `;
+
+            // Insert the row at the top
+            transactionList.insertBefore(transactionRow, transactionList.firstChild);
+
+            // Force layout reflow for transition to work
+            setTimeout(() => {
+                // Slide down all existing rows
+                const rows = document.querySelectorAll('.transaction-row');
+                rows.forEach((row) => {
+                    row.classList.add('slide-down');
+                });
+
+                // Animate the new row to slide in
+                transactionRow.classList.add('show');
+                transactionRow.classList.remove('enter');
+            }, 50);
+
+            // Remove the slide-down class after animation is done
+            setTimeout(() => {
+                const rows = document.querySelectorAll('.transaction-row');
+                rows.forEach((row) => {
+                    row.classList.remove('slide-down');
+                });
+            }, 2000);
+        }
+
+        // WebSocket open event - subscribe to unconfirmed transactions
+        socket.onopen = () => {
+            socket.send(JSON.stringify({ "op": "unconfirmed_sub" }));
+            console.log('WebSocket connection established');
+        };
+
+        // WebSocket message event - handle incoming transactions
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+
+            // Extract relevant fields
+            const address = data.x.out[0].addr;
+            const transactionTime = formatTimestamp(data.x.time);
+            const transactionAmount = data.x.out[0].value / 100000000; // Convert to BTC
+
+            // Add transaction to UI
+            addTransaction(address, transactionTime, transactionAmount);
+        };
+    </script>
+</body>
+</html>

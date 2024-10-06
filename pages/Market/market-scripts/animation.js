@@ -75,4 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
   addScrollAnimation(".links-toggles");
   addScrollAnimation(".low-high");
   addScrollAnimation(".navbar");
+  addScrollAnimation(".content");
+  addScrollAnimation(".navbar");
 });

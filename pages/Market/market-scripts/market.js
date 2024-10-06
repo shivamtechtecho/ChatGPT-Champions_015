@@ -196,78 +196,132 @@ const options = {
     "x-cg-demo-api-key": "	CG-FsyvQgVi1Nh2kTBk3HU2icLx",
   },
 };
+const randomImgSrc = [
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/22974.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/28321.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/3773.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/4847.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/6536.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/28782.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/5665.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2087.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/29587.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/8000.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2087.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/10791.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/5176.svg",
+  "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/7950.svg",
+];
+// async function getPercent(coin_id) {
+//   await fetch(`https://data.messari.io/api/v1/assets/${coin_id}/metrics`)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data);
 
-fetch(apiEndpoint, options)
+//       return data;
+//     });
+// }
+
+fetch(
+  `https://chat-gpt-backend.vercel.app/get-percent-data`
+  // {
+  //   method: "GET",
+  //   headers: {
+  //     accept: "application/json",
+  //     "x-cg-demo-api-key": "	CG-FsyvQgVi1Nh2kTBk3HU2icLx",
+  //   },
+  // }
+)
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
+    const response1 = data;
+    const alternate = response1.data.data;
+    fetch(apiEndpoint, options)
+      .then((response) => response.json())
+      .then((data) => {
+        const tableBody = document.querySelector("tbody");
+        data.forEach((coin, index) => {
+          // Create a new row
 
-    const tableBody = document.querySelector("tbody");
+          const row = document.createElement("tr");
+          row.style.cursor = "pointer";
 
-    data.forEach((coin, index) => {
-      // Create a new row
-      const row = document.createElement("tr");
-      row.style.cursor = "pointer";
-
-      // Columns for each data point
-      row.innerHTML = `
+          // Columns for each data point
+          row.innerHTML = `
           <td><i class="fa-regular fa-star"></i></td>
           <td class="coin-rank" style="text-align: center;"><p>${
             coin.market_cap_rank
           }</p></td>
           <td class="coin-name" style="text-align: start;">
-            <a style="display: flex;" href="#">
+            <a href="/pages/Market/coin-detail.html" style="display: flex;" href="#">
               <img class="coin-logo" src="${coin.image}" alt="${coin.name}">
               <p>${coin.name}</p>
-              <p>${coin.symbol.toUpperCase()}</p>
+              <p class="coin-symbol">${coin.symbol.toUpperCase()}</p>
             </a>
           </td>
           <td style="text-align: end;"><span>$${coin.current_price.toLocaleString()}</span></td>
-          <td style="text-align: end;">
-            <span><i class="${
-              coin.price_change_percentage_1h_in_currency >= 0
-                ? "fa-solid fa-sort-up"
-                : "fa-solid fa-sort-down"
-            }"></i> ${
-        coin.price_change_percentage_1h_in_currency?.toFixed(2) || "N/A"
-      }%</span>
-          </td>
-          <td style="text-align: end;">
-            <span><i class="${
-              coin.price_change_percentage_24h >= 0
-                ? "fa-solid fa-sort-up"
-                : "fa-solid fa-sort-down"
-            }"></i> ${coin.price_change_percentage_24h.toFixed(2)}%</span>
-          </td>
-          <td style="text-align: end;">
-            <span><i class="${
-              coin.price_change_percentage_7d_in_currency >= 0
-                ? "fa-solid fa-sort-up"
-                : "fa-solid fa-sort-down"
-            }"></i> ${
-        coin.price_change_percentage_7d_in_currency?.toFixed(2) || "N/A"
-      }%</span>
-          </td>
+          <td class="percentage_change" style="text-align: end;">
+  <span style="color: ${
+    alternate[index].quote.USD.percent_change_1h >= 0
+      ? " rgb(2, 192, 2)"
+      : "red"
+  }">
+    <i class="${
+      alternate[index].quote.USD.percent_change_1h >= 0
+        ? "fa-solid fa-sort-up"
+        : "fa-solid fa-sort-down"
+    }"></i> ${
+            alternate[index].quote.USD.percent_change_1h?.toFixed(2) || "N/A"
+          }%</span>
+</td>
+<td class="percentage_change" style="text-align: end;">
+  <span style="color: ${
+    coin.price_change_percentage_24h >= 0 ? " rgb(2, 192, 2)" : "red"
+  }">
+    <i class="${
+      coin.price_change_percentage_24h >= 0
+        ? "fa-solid fa-sort-up"
+        : "fa-solid fa-sort-down"
+    }"></i> ${coin.price_change_percentage_24h.toFixed(2)}%</span>
+</td>
+<td class="percentage_change" style="text-align: end;">
+  <span style="color: ${
+    alternate[index].quote.USD.percent_change_7d >= 0
+      ? " rgb(2, 192, 2)"
+      : "red"
+  }">
+    <i class="${
+      alternate[index].quote.USD.percent_change_7d >= 0
+        ? "fa-solid fa-sort-up"
+        : "fa-solid fa-sort-down"
+    }"></i> ${
+            alternate[index].quote.USD.percent_change_7d?.toFixed(2) || "N/A"
+          }%</span>
+</td>
+
           <td style="text-align: end;"><span>$${coin.market_cap.toLocaleString()}</span></td>
-          <td style="text-align: end;">
+          <td class="vol-24h" style="text-align: end;">
             <p>$${coin.total_volume.toFixed(4).toLocaleString()}</p>
             <p>${(coin.total_volume / coin.current_price).toFixed(
               4
             )} ${coin.symbol.toUpperCase()}</p>
           </td>
           <td style="text-align: end;"><p>${coin.circulating_supply.toLocaleString()} ${coin.symbol.toUpperCase()}</p></td>
-          <td style="text-align: end;">
+          <td class="coin-chart" style="text-align: end;">
             <img src="https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/${
               coin.market_cap_rank
-            }.svg" alt="${coin.name} 7d chart">
+            }.svg" alt="${coin.name} 7d chart"
+            onerror="this.onerror=null;this.src=randomImgSrc[Math.floor(Math.random() * 15)];">
           </td>
         `;
 
-      // Append the row to the table body
-      tableBody.appendChild(row);
-    });
-  })
-  .catch((error) => console.error("Error fetching data:", error));
+          // Append the row to the table body
+          tableBody.appendChild(row);
+        });
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  });
 
 // COnverter logic
 
