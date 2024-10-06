@@ -369,6 +369,7 @@ COnvertoer
     align-items: center;
     width: 80%;
     min-width: 424px;
+    gap: 1EM;
     margin: auto;
     font-size: 13px;
     margin-bottom: 2em;

@@ -158,9 +158,10 @@ let countdownFunction = setInterval(function () {
   let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
   // Display the result in the countdown element
-  // document.getElementById("countdown").innerHTML =
-  //   days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  document.getElementById("countdown").innerHTML =
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
   // If the countdown is finished, display some text
   if (distance < 0) {
