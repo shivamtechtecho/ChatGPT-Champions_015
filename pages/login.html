@@ -125,13 +125,16 @@
         const hardcodedUsername = "user123";
         const hardcodedPassword = "password123";
 
+        // Use file:// for local file paths
+        const loginRedirectPath = "../index.html";
+        const signupRedirectPath = "../index.html";
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('error-message');
 
             if (username === hardcodedUsername && password === hardcodedPassword) {
-                window.location.href = "homepage.html";
+                window.location.href = loginRedirectPath;  // Redirect to the local file after login
             } else {
                 errorMessage.textContent = "Invalid username or password!";
             }
@@ -140,7 +143,7 @@
         function signup() {
             const email = document.getElementById('email').value;
             alert('Account created successfully for ' + email);
-            window.location.href = "homepage.html";
+            window.location.href = signupRedirectPath;  // Redirect to the local file after signup
         }
 
         function showSignup() {
@@ -152,6 +155,6 @@
             document.getElementById('signupBox').style.display = 'none';
             document.getElementById('loginForm').style.display = 'block';
         }
-    </script>
+</script>
 </body>
 </html>
