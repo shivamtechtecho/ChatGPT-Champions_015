@@ -83,7 +83,7 @@ Key features of the website include:
 
 **Project Link:**
 
-https://chatgptchamps.netlify.app/
+https://chat-gpt-champions-015-redeployment.vercel.app/
 
 **Demo-Presentation:**
 
