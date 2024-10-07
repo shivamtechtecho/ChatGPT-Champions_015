@@ -366,13 +366,13 @@ Grid Distribution
                     <span>Make trading fun give <span>0% interest </span> in leverage.</span>
                 </div>
                 <div class="choose-trade">
-                    <a href="#">Spot</a>
-                    <a href="#">Future</a>
-                    <a href="#">USD5-M</a>
-                    <a href="#">COIN-M</a>
-                    <a href="#">Options</a>
-                    <a href="#">Bots</a>
-                    <a href="#">Copy Trading <sup>New</sup></a>
+                    <a href="/pages/BuyCrypto.html">Spot</a>
+                    <a href="/pages/BuyCrypto.html">Future</a>
+                    <a href="/pages/BuyCrypto.html">USD5-M</a>
+                    <a href="/pages/BuyCrypto.html">COIN-M</a>
+                    <a href="/pages/BuyCrypto.html">Options</a>
+                    <a href="/pages/BuyCrypto.html">Bots</a>
+                    <a href="/pages/BuyCrypto.html">Copy Trading <sup>New</sup></a>
                 </div>
             </div>
         </div>
@@ -479,55 +479,7 @@ Grid Distribution
         // Append the script inside the .coin-chart container
         chartContainer.appendChild(script);
       </script>
-      <script>
-        // Placeholder for previous price to compare changes
-let previousPrice = 61374.51;
-
-// Get the DOM elements
-const priceElement = document.querySelector(".coin-mainprice > p");
-const changeElement = document.getElementById("change");
-
-// Simulating real-time price data from WebSocket
-function updatePrice(newPrice) {
-  const oldPrice = previousPrice;
-  previousPrice = newPrice;
-
-  // Update price in the DOM
-  priceElement.textContent = `$${newPrice.toFixed(2)}`;
-//   console.log(newPrice,oldPrice);
-  
-  // Compare old and new prices
-  if (newPrice > oldPrice) {
-    priceElement.classList.add("price-up");
-    priceElement.classList.remove("price-down", "price-no-change");
-  } else if (newPrice < oldPrice) {
-    priceElement.classList.add("price-down");
-    priceElement.classList.remove("price-up", "price-no-change");
-  } else {
-    priceElement.classList.add("price-no-change");
-    priceElement.classList.remove("price-up", "price-down");
-  }
-
-  // Reset animation class after the animation ends
-  setTimeout(() => {
-    priceElement.classList.remove("price-up", "price-down");
-  }, 500);
-}
-
-// Example WebSocket connection (e.g., Binance WebSocket)
-const socket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@ticker");
-
-// Handle incoming messages from WebSocket
-socket.onmessage = function (event) {
-  const data = JSON.parse(event.data);
-  const newPrice = parseFloat(data.c); // 'c' is the current price
-//   console.log(data);
-  
-  updatePrice(newPrice);
-};
-
-      </script>
 <script src="./market-scripts/animation.js"></script>
-<script src="./market-scripts/market.js"></script>
+<script src="./market-scripts/coin-detail.js"></script>
 </body>
 </html>
