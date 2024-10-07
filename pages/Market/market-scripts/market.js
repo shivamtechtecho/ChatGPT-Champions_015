@@ -1,3 +1,11 @@
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+//Global MArket
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
 function fetchData() {
   axios
     .get("https://chat-gpt-backend.vercel.app/get-coinmarket-data")
@@ -96,10 +104,15 @@ fetchData();
 
 // Refresh data every 5 minutes (300,000 ms)
 setInterval(fetchData, 300000); // Adjust interval as necessary
-// ---------------------------------------------------------------
-// ---------------------------------------------------------------
-// ---------------------------------------------------------------
+
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // Slide Section
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
 function initSlider(sliderId, indicatorsId) {
   let currentSlide = 0;
   const slides = document.querySelectorAll(`#${sliderId} .slide`);
@@ -142,6 +155,14 @@ function initSlider(sliderId, indicatorsId) {
 initSlider("slider1", "indicators1");
 initSlider("slider2", "indicators2");
 
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// /Countdowm
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
 // Set the countdown target to 5 days from now
 let countdownDate = new Date().getTime() + 5 * 24 * 60 * 60 * 1000;
 
@@ -170,6 +191,14 @@ let countdownFunction = setInterval(function () {
   }
 }, 1000);
 
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// polulating the table
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
 // Animation
 
 const view_animation = (cur_state, animate) => {
@@ -184,8 +213,14 @@ const view_animation = (cur_state, animate) => {
 };
 view_animation("fade-up", "animate-fadeUp");
 view_animation("vanish", "animate-appear");
-
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 // polulating the table
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+
 const apiEndpoint =
   "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd";
 
@@ -213,26 +248,8 @@ const randomImgSrc = [
   "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/5176.svg",
   "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/7950.svg",
 ];
-// async function getPercent(coin_id) {
-//   await fetch(`https://data.messari.io/api/v1/assets/${coin_id}/metrics`)
-//     .then((response) => response.json())
-//     .then((data) => {
-//       console.log(data);
 
-//       return data;
-//     });
-// }
-
-fetch(
-  `https://chat-gpt-backend.vercel.app/get-percent-data`
-  // {
-  //   method: "GET",
-  //   headers: {
-  //     accept: "application/json",
-  //     "x-cg-demo-api-key": "	CG-FsyvQgVi1Nh2kTBk3HU2icLx",
-  //   },
-  // }
-)
+fetch(`https://chat-gpt-backend.vercel.app/get-percent-data`)
   .then((response) => response.json())
   .then((data) => {
     const response1 = data;
@@ -242,6 +259,19 @@ fetch(
       .then((data) => {
         const tableBody = document.querySelector("tbody");
         data.forEach((coin, index) => {
+          // Web Socketing  the Price
+
+          const ws = new WebSocket(
+            `wss://stream.binance.com:9443/ws/${coin.symbol}usdt@trade`
+          );
+
+          // Event listener for receiving data from the WebSocket
+          ws.onmessage = function (event) {
+            const priceData = JSON.parse(event.data);
+            const currentPrice = parseFloat(priceData.p); // 'p' is the price field from the Binance trade event
+            updatePrice(`.coin-price${index}`, currentPrice); // Function to update the price in the table
+          };
+
           // Create a new row
 
           const row = document.createElement("tr");
@@ -260,7 +290,7 @@ fetch(
               <p class="coin-symbol">${coin.symbol.toUpperCase()}</p>
             </a>
           </td>
-          <td style="text-align: end;"><span>$${coin.current_price.toLocaleString()}</span></td>
+          <td style="text-align: end;"><span class="coin-price${index}">$${coin.current_price.toLocaleString()}</span></td>
           <td class="percentage_change" style="text-align: end;">
   <span style="color: ${
     alternate[index].quote.USD.percent_change_1h >= 0
@@ -323,96 +353,30 @@ fetch(
       .catch((error) => console.error("Error fetching data:", error));
   });
 
-// COnverter logic
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// Price Ticker
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
 
-let conversionRate = 61374.51;
+function updatePrice(coinSymbol, price) {
+  const priceElement = document.querySelector(`${coinSymbol}`);
 
-// Function to convert BTC to USD
-function convertBTCtoUSD(btcValue) {
-  return btcValue * conversionRate;
-}
+  // Check if price increased or decreased to apply the animation
+  const previousPrice = parseFloat(priceElement.innerText);
+  priceElement.innerText = price.toFixed(2);
 
-// Function to convert USD to BTC
-function convertUSDtoBTC(usdValue) {
-  return usdValue / conversionRate;
-}
-
-// Get input elements
-const btcInput = document.getElementById("btcInput");
-const usdInput = document.getElementById("usdInput");
-
-// Prevent circular updates with a flag
-let isUpdating = false;
-
-// Event listener for BTC input change (BTC to USD)
-btcInput.addEventListener("input", function () {
-  if (!isUpdating) {
-    let btcValue = parseFloat(btcInput.value);
-    if (!isNaN(btcValue)) {
-      isUpdating = true; // Set flag to avoid circular update
-      usdInput.value = convertBTCtoUSD(btcValue).toFixed(2); // Convert BTC to USD
-      isUpdating = false; // Unset flag after update
-    } else {
-      usdInput.value = ""; // Clear USD input if BTC value is invalid
-    }
-  }
-});
-
-// Event listener for USD input change (USD to BTC)
-usdInput.addEventListener("input", function () {
-  if (!isUpdating) {
-    let usdValue = parseFloat(usdInput.value);
-    if (!isNaN(usdValue)) {
-      isUpdating = true; // Set flag to avoid circular update
-      btcInput.value = convertUSDtoBTC(usdValue).toFixed(8); // Convert USD to BTC
-      isUpdating = false; // Unset flag after update
-    } else {
-      btcInput.value = ""; // Clear BTC input if USD value is invalid
-    }
-  }
-});
-
-// Price Tickers
-// Placeholder for previous price to compare changes
-let previousPrice = 61374.51;
-
-// Get the DOM elements
-const priceElement = document.getElementById("price");
-const changeElement = document.getElementById("change");
-
-// Simulating real-time price data from WebSocket
-function updatePrice(newPrice) {
-  const oldPrice = previousPrice;
-  previousPrice = newPrice;
-
-  // Update price in the DOM
-  priceElement.textContent = `$${newPrice.toFixed(2)}`;
-
-  // Compare old and new prices
-  if (newPrice > oldPrice) {
+  if (price > previousPrice) {
+    // Apply green animation for price rise
     priceElement.classList.add("price-up");
-    priceElement.classList.remove("price-down", "price-no-change");
-  } else if (newPrice < oldPrice) {
+    priceElement.classList.remove("price-down");
+  } else if (price < previousPrice) {
+    // Apply red animation for price drop
     priceElement.classList.add("price-down");
-    priceElement.classList.remove("price-up", "price-no-change");
+    priceElement.classList.remove("price-up");
   } else {
-    priceElement.classList.add("price-no-change");
     priceElement.classList.remove("price-up", "price-down");
   }
-
-  // Reset animation class after the animation ends
-  setTimeout(() => {
-    priceElement.classList.remove("price-up", "price-down");
-  }, 500);
 }
-
-// Example WebSocket connection (e.g., Binance WebSocket)
-const socket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@ticker");
-
-// Handle incoming messages from WebSocket
-socket.onmessage = function (event) {
-  const data = JSON.parse(event.data);
-  const newPrice = parseFloat(data.c); // 'c' is the current price
-
-  updatePrice(newPrice);
-};
