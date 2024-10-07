@@ -35,7 +35,14 @@ Key features of the website include:
 
 **Screenshots:**
 
-Landing Page:
+**Login Page:**
+
+![image](https://github.com/user-attachments/assets/8df9c857-cbe2-418e-9515-8b73d8dd1e3b)
+
+![image](https://github.com/user-attachments/assets/6e11525c-addd-4cbc-be5f-9a203ab52b90)
+
+
+**Landing Page:**
 
 ![image](https://github.com/user-attachments/assets/7cfa7e9e-fb08-48b7-9243-36d2568f57d5)
 
@@ -46,28 +53,28 @@ Landing Page:
 ![image](https://github.com/user-attachments/assets/0b6ae2c5-647d-4cdc-aa87-1752557367f1)
 
 
-Buy/Sell Crypto Page:
+**Buy/Sell Crypto Page:**
 
 ![image](https://github.com/user-attachments/assets/21627ee1-7ee7-4adc-89a8-98a6f139c46a)
 
 ![image](https://github.com/user-attachments/assets/68e7b973-699d-4da3-bb6d-dd8545b74bbc)
 
 
-Market Page:
+**Market Page:**
 
 ![image](https://github.com/user-attachments/assets/bc16c440-6e09-4479-b882-7568eb2e2c93)
 
 ![image](https://github.com/user-attachments/assets/e8d228b2-538a-4895-9b0f-c9fde1a029ff)
 
 
-Portfolio Page:
+**Portfolio Page:**
 
 ![image](https://github.com/user-attachments/assets/0c0ea087-7bb1-432f-9c5e-d988d566088a)
 
 ![image](https://github.com/user-attachments/assets/720146a1-c7d7-4849-b20e-2b5d9930fc96)
 
 
-Blog:
+**Blog:**
 
 ![image](https://github.com/user-attachments/assets/1bc13c6f-07a9-4246-aa52-5f14348ea9fb)
 
